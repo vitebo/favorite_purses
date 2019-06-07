@@ -35,8 +35,18 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources',
   ],
+  /*
+   ** Style Resources module configuration
+   ** See https://github.com/nuxt-community/style-resources-module
+   */
+  styleResources: {
+    scss: [
+      'assets/scss/app.scss',
+    ]
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
