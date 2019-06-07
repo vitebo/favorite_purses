@@ -20,3 +20,15 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## Docker
+
+build
+```
+docker build -t favorite_purses:1.0 .
+```
+
+run
+```
+docker run -itp 3000:3000 favorite_purses:1.0
+```
