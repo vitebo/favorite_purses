@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  color: $neutral-color-black;
+  font-size: 1rem;
+  font-weight: $font-weight-normal;
+  line-height: 1.5;
+  margin: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $font-family;
+}
