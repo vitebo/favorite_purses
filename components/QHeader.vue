@@ -1,23 +1,27 @@
 <template>
   <header class="q-header">
-    <div class="q-header__item q-header__item--first">
-      Ajuda
-    </div>
-    <div class="q-header__item">
-      <q-logo class="q-header__logo" />
-    </div>
-    <div class="q-header__item q-header__item--last">
-      Login
-    </div>
+    <q-header-item text="Ajuda" class="q-header__info">
+      <q-icon-info />
+    </q-header-item>
+    <q-logo class="q-header__logo" />
+    <q-header-item text="Conta" class="q-header__account">
+      <q-icon-user-circle />
+    </q-header-item>
   </header>
 </template>
 
 <script>
 import QLogo from '~/components/QLogo'
+import QHeaderItem from '~/components/QHeaderItem'
+import QIconInfo from '~/components/q-icons/QIconInfo'
+import QIconUserCircle from '~/components/q-icons/QIconUserCircle'
 
 export default {
   components: {
-    QLogo
+    QLogo,
+    QHeaderItem,
+    QIconInfo,
+    QIconUserCircle
   }
 }
 </script>
@@ -35,21 +39,20 @@ $divisor-color: #eeeeee;
   display: flex;
   height: $header-height;
   justify-content: space-between;
+  padding: $space-s 0;
 }
 
-.q-header__item {
-  padding: $space-s;
-}
-
-.q-header__item--first {
+.q-header__info {
   border-right: $space-xxs solid $divisor-color;
+  padding: 0 $space-m;
 }
 
-.q-header__item--last {
+.q-header__account {
   border-left: $space-xxs solid $divisor-color;
+  padding: 0 $space-m;
 }
 
 .q-header__logo {
-  height: 100%;
+  width: 92px;
 }
 </style>
