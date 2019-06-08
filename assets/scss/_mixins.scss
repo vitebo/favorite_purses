@@ -1,0 +1,8 @@
+@mixin triangle($size: $space-s, $direction: 'up', $color: $neutral-color-black) {
+  border: $size solid transparent;
+  content: '';
+  height: 0;
+  width: 0;
+
+  border-#{$direction}-color: $color;
+}
