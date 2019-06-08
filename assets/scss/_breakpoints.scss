@@ -10,6 +10,7 @@ $breakpoints: (
   lg: $screen-lg,
 );
 
+
 @mixin media-breakpoint-up($name) {
   $min: map-get($breakpoints, $name);
 
@@ -22,6 +23,15 @@ $breakpoints: (
   $max: map-get($breakpoints, $name) - 1px;
 
   @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($nameMin, $nameMax) {
+  $min: map-get($breakpoints, $nameMin);
+  $max: map-get($breakpoints, $nameMax) - 1px;
+
+  @media (min-width: $min) and (max-width: $max) {
     @content;
   }
 }

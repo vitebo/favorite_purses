@@ -1,10 +1,14 @@
 <template>
   <header class="q-header">
-    <q-helper-menu class="q-header__helper-menu" />
+    <div class="q-header__helper-menu">
+      <q-helper-menu />
+    </div>
     <q-logo class="q-header__logo" />
-    <q-header-item text="Conta" class="q-header__account">
-      <q-icon-user-circle />
-    </q-header-item>
+    <div class="q-header__account">
+      <q-header-item text="Conta">
+        <q-icon-user-circle />
+      </q-header-item>
+    </div>
   </header>
 </template>
 
@@ -41,17 +45,29 @@ export default {
 .q-header__account {
   flex: 0 1 80px;
   padding: 0 $space-m;
+
+  @include media-breakpoint-up(sm) {
+    flex-basis: 420px;
+  }
 }
 
 .q-header__helper-menu {
-  border-right: $space-xxs solid $neutral-color-gray-lighter;
+  @include media-breakpoint-down(sm) {
+    border-right: $space-xxs solid $neutral-color-gray-lighter;
+  }
 }
 
 .q-header__account {
-  border-left: $space-xxs solid $neutral-color-gray-lighter;
+  display: flex;
+  justify-content: flex-end;
+
+  @include media-breakpoint-down(sm) {
+    border-left: $space-xxs solid $neutral-color-gray-lighter;
+  }
 }
 
 .q-header__logo {
-  width: 100px;
+  height: 100%;
+  flex-shrink: 0;
 }
 </style>

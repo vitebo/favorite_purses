@@ -47,17 +47,21 @@ export default {
 <style lang="scss">
 .q-side-menu__overlay,
 .q-side-menu__content {
-  position: absolute;
-  height: calc(100vh - #{$header-height});
-  left: 0;
-  top: $header-height;
+  @include media-breakpoint-down(sm) {
+    height: calc(100vh - #{$header-height});
+    left: 0;
+    top: $header-height;
+    position: absolute;
+  }
 }
 
 .q-side-menu__overlay {
-  background-color: $overlay-color;
-  opacity: 0;
-  transition: opacity $transition;
-  width: 100vw;
+  @include media-breakpoint-down(sm) {
+    background-color: $overlay-color;
+    opacity: 0;
+    transition: opacity $transition;
+    width: 100vw;
+  }
 }
 
 .q-side-menu__overlay--show {
@@ -68,23 +72,30 @@ export default {
   background-color: transparent;
   border: none;
   padding: 0;
+
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
 }
 
 .q-side-menu__content {
-  background-color: $neutral-color-gray-lightest;
-  box-shadow: $high-box-shadow;
-  padding: $space-s $space-st $space-s 0;
-  transform: translateX(-100%);
   transition: transform $transition;
 
-  &::before {
-    $size: 10px;
+  @include media-breakpoint-down(sm) {
+    background-color: $neutral-color-gray-lightest;
+    box-shadow: $high-box-shadow;
+    padding: $space-s $space-st $space-s 0;
+    transform: translateX(-100%);
 
-    @include triangle($size, 'bottom', $neutral-color-gray-lightest);
+    &::before {
+      $size: 10px;
 
-    left: $space-st;
-    position: absolute;
-    top: $size * -2;
+      @include triangle($size, 'bottom', $neutral-color-gray-lightest);
+
+      left: $space-st;
+      position: absolute;
+      top: $size * -2;
+    }
   }
 }
 

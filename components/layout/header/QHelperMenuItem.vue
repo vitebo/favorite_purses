@@ -4,8 +4,11 @@
       <slot />
     </q-icon-base>
     <div class="q-helper-menu-item__info">
-      <strong :class="mainTextClass">{{ mainText }}</strong>
-      <span v-if="secondaryText" class="q-helper-menu-item__text">
+      <strong class="q-helper-menu-item__text">{{ mainText }}</strong>
+      <span
+        v-if="secondaryText"
+        class="q-helper-menu-item__text q-helper-menu-item__text--secondary"
+      >
         {{ secondaryText }}
       </span>
     </div>
@@ -28,17 +31,6 @@ export default {
       type: [String, Boolean],
       default: false
     }
-  },
-  computed: {
-    mainTextClass() {
-      return [
-        'q-helper-menu-item__text',
-        { 'q-helper-menu-item__text--highlight': this.hasSecondaryText }
-      ]
-    },
-    hasSecondaryText() {
-      return this.secondaryText
-    }
   }
 }
 </script>
@@ -46,12 +38,15 @@ export default {
 <style lang="scss">
 .q-helper-menu-item {
   align-items: center;
+  color: $primary-color-dark;
   display: flex;
-  padding: $space-s;
+
+  @include media-breakpoint-down(sm) {
+    padding: $space-s $space-m;
+  }
 }
 
 .q-helper-menu-item__icon {
-  color: $primary-color-dark;
   margin-right: $space-s;
 }
 
@@ -61,10 +56,14 @@ export default {
 }
 
 .q-helper-menu-item__text {
-  font-weight: $font-weight-normal;
+  font-weight: $font-weight-bold;
+
+  @include media-breakpoint-between(sm, md) {
+    font-size: $font-size-small;
+  }
 }
 
-.q-helper-menu-item__text--highlight {
-  font-weight: $font-weight-bold;
+.q-helper-menu-item__text--secondary {
+  font-size: $font-size-small;
 }
 </style>

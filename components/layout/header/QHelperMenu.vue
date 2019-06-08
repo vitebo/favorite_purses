@@ -6,12 +6,12 @@
       </q-header-item>
     </template>
     <ul class="q-helper-menu__list">
-      <li>
+      <li class="q-helper-menu__item">
         <q-helper-menu-item main-text="Como funciona">
           <q-icon-info />
         </q-helper-menu-item>
       </li>
-      <li>
+      <li class="q-helper-menu__item">
         <q-helper-menu-item
           main-text="0800 123 2222"
           secondary-text="Envie mensagem ou ligue"
@@ -44,7 +44,27 @@ export default {
 
 <style lang="scss">
 .q-helper-menu__list {
+  align-items: center;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
   padding-left: 0;
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+  }
+}
+
+.q-helper-menu__item {
+  & + & {
+    @include media-breakpoint-up(sm) {
+      margin-left: $space-s;
+    }
+
+    @include media-breakpoint-up(md) {
+      margin-left: $space-m;
+    }
+  }
 }
 
 .q-helper-menu__whatsapp-icon {
