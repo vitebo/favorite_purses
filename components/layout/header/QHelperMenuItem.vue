@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import QIconBase from '~/components/QIconBase'
+import QIconBase from '~/components/q-icons/QIconBase'
 
 export default {
   components: {

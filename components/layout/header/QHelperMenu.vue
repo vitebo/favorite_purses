@@ -24,19 +24,20 @@
 </template>
 
 <script>
-import QHelperMenuItem from '~/components/QHelperMenuItem'
-import QSideMenu from '~/components/QSideMenu'
-import QHeaderItem from '~/components/QHeaderItem'
-import QIconWhatsApp from '~/components/q-icons/QIconWhatsApp'
+import QHelperMenuItem from './QHelperMenuItem'
+import QHeaderItem from './QHeaderItem'
+
+import QSideMenu from '~/components/layout/QSideMenu'
 import QIconInfo from '~/components/q-icons/QIconInfo'
+import QIconWhatsApp from '~/components/q-icons/QIconWhatsApp'
 
 export default {
   components: {
-    QIconInfo,
-    QIconWhatsApp,
+    QHelperMenuItem,
     QHeaderItem,
     QSideMenu,
-    QHelperMenuItem
+    QIconInfo,
+    QIconWhatsApp
   }
 }
 </script>

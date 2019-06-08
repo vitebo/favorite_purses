@@ -9,17 +9,18 @@
 </template>
 
 <script>
+import QHelperMenu from './QHelperMenu'
+import QHeaderItem from './QHeaderItem'
+
 import QLogo from '~/components/QLogo'
-import QHelperMenu from '~/components/QHelperMenu'
-import QHeaderItem from '~/components/QHeaderItem'
 import QIconUserCircle from '~/components/q-icons/QIconUserCircle'
 
 export default {
   components: {
-    QLogo,
+    QHelperMenu,
     QHeaderItem,
-    QIconUserCircle,
-    QHelperMenu
+    QLogo,
+    QIconUserCircle
   }
 }
 </script>

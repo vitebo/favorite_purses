@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import QHeader from '~/components/QHeader.vue'
+import QHeader from '~/components/layout/header/QHeader.vue'
 
 export default {
   components: {
