@@ -1,5 +1,9 @@
 # favorite_purses
 
+[![Build Status](https://travis-ci.org/vitebo/favorite_purses.svg?branch=master)](https://travis-ci.org/vitebo/favorite_purses)
+
+[Demo](https://vitebo.github.io/favorite_purses/)
+
 > My wondrous Nuxt.js project
 
 ## Build Setup
