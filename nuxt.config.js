@@ -1,4 +1,16 @@
+/* nuxt.config.js */
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: 'http://vitebo.github.io/favorite_purses'
+        }
+      }
+    : {}
+
 export default {
+  ...routerBase,
   mode: 'spa',
   /*
    ** Headers of the page
@@ -36,16 +48,14 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/style-resources',
+    '@nuxtjs/style-resources'
   ],
   /*
    ** Style Resources module configuration
    ** See https://github.com/nuxt-community/style-resources-module
    */
   styleResources: {
-    scss: [
-      'assets/scss/app.scss',
-    ]
+    scss: ['assets/scss/app.scss']
   },
   /*
    ** Axios module configuration
