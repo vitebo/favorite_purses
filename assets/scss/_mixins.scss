@@ -11,3 +11,8 @@
   height: $size;
   width: $size;
 }
+
+@mixin min-size($size) {
+  min-height: $size;
+  min-width: $size;
+}

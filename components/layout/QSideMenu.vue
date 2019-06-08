@@ -56,9 +56,10 @@ export default {
 }
 
 .q-side-menu__overlay {
+  opacity: 0;
+
   @include media-breakpoint-down(sm) {
     background-color: $overlay-color;
-    opacity: 0;
     transition: opacity $transition;
     width: 100vw;
   }

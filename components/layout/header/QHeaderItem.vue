@@ -6,6 +6,9 @@
     <span class="q-item__text">
       {{ text }}
     </span>
+    <span class="q-item__text q-item__text--short">
+      {{ getShortText }}
+    </span>
   </a>
 </template>
 
@@ -21,9 +24,18 @@ export default {
       type: String,
       default: 'item'
     },
+    shortText: {
+      type: [String, Boolean],
+      default: false
+    },
     url: {
       type: String,
       default: '#'
+    }
+  },
+  computed: {
+    getShortText() {
+      return this.shortText || this.text
     }
   }
 }
@@ -35,6 +47,11 @@ export default {
   display: inline-block;
   text-align: center;
   text-decoration: none;
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }
 
 .q-item__icon {
@@ -44,7 +61,27 @@ export default {
 }
 
 .q-item__text {
-  font-size: $font-size-small;
   font-weight: $font-weight-bold;
+  margin: 0 $space-s;
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+  @include media-breakpoint-between(sm, md) {
+    font-size: $font-size-small;
+  }
+}
+
+.q-item__text--short {
+  font-size: $font-size-small;
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
 }
 </style>

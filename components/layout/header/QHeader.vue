@@ -5,7 +5,7 @@
     </div>
     <q-logo class="q-header__logo" />
     <div class="q-header__account">
-      <q-header-item text="Conta">
+      <q-header-item text="Nome Sobrenome" short-text="Conta">
         <q-icon-user-circle />
       </q-header-item>
     </div>
@@ -67,7 +67,7 @@ export default {
 }
 
 .q-header__logo {
-  height: 100%;
+  height: 42px;
   flex-shrink: 0;
 }
 </style>

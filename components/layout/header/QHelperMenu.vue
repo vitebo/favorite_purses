@@ -11,7 +11,7 @@
           <q-icon-info />
         </q-helper-menu-item>
       </li>
-      <li class="q-helper-menu__item">
+      <li class="q-helper-menu__item--last">
         <q-helper-menu-item
           main-text="0800 123 2222"
           secondary-text="Envie mensagem ou ligue"
@@ -55,19 +55,16 @@ export default {
   }
 }
 
-.q-helper-menu__item {
-  & + & {
-    @include media-breakpoint-up(sm) {
-      margin-left: $space-s;
-    }
-
-    @include media-breakpoint-up(md) {
-      margin-left: $space-m;
-    }
+.q-helper-menu__item--last {
+  @include media-breakpoint-up(sm) {
+    border-left: $space-xxs solid $neutral-color-gray-lighter;
+    margin-left: $space-m;
+    padding-left: $space-m;
   }
 }
 
 .q-helper-menu__whatsapp-icon {
-  color: #25d366;
+  $whatsapp-color: #25d366;
+  color: $whatsapp-color;
 }
 </style>

@@ -47,6 +47,7 @@ export default {
 }
 
 .q-helper-menu-item__icon {
+  @include min-size(22px);
   margin-right: $space-s;
 }
 
