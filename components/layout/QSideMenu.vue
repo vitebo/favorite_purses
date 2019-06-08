@@ -48,7 +48,6 @@ export default {
 .q-side-menu__overlay,
 .q-side-menu__content {
   @include media-breakpoint-down(sm) {
-    height: calc(100vh - #{$header-height});
     left: 0;
     top: $header-height;
     position: absolute;
@@ -67,6 +66,10 @@ export default {
 
 .q-side-menu__overlay--show {
   opacity: 1;
+
+  @include media-breakpoint-down(sm) {
+    height: calc(100vh - #{$header-height});
+  }
 }
 
 .q-side-menu__target {
@@ -85,6 +88,7 @@ export default {
   @include media-breakpoint-down(sm) {
     background-color: $neutral-color-gray-lightest;
     box-shadow: $high-box-shadow;
+    height: calc(100vh - #{$header-height});
     padding: $space-s $space-st $space-s 0;
     transform: translateX(-100%);
 
