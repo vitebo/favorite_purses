@@ -1,8 +1,6 @@
 <template>
   <header class="q-header">
-    <q-header-item text="Ajuda" class="q-header__info">
-      <q-icon-info />
-    </q-header-item>
+    <q-header-helper class="q-header__info" />
     <q-logo class="q-header__logo" />
     <q-header-item text="Conta" class="q-header__account">
       <q-icon-user-circle />
@@ -12,16 +10,16 @@
 
 <script>
 import QLogo from '~/components/QLogo'
+import QHeaderHelper from '~/components/QHeaderHelper'
 import QHeaderItem from '~/components/QHeaderItem'
-import QIconInfo from '~/components/q-icons/QIconInfo'
 import QIconUserCircle from '~/components/q-icons/QIconUserCircle'
 
 export default {
   components: {
     QLogo,
     QHeaderItem,
-    QIconInfo,
-    QIconUserCircle
+    QIconUserCircle,
+    QHeaderHelper
   }
 }
 </script>
@@ -53,6 +51,6 @@ $divisor-color: #eeeeee;
 }
 
 .q-header__logo {
-  width: 92px;
+  width: 100px;
 }
 </style>

@@ -6,6 +6,6 @@
 
 <style lang="scss">
 .bla {
-  margin-top: $space-m;
+  display: none;
 }
 </style>
