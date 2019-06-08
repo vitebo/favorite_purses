@@ -3,7 +3,7 @@ FROM node:12.4.0-alpine
 ADD . /app
 WORKDIR /app
 
-RUN yarn install
+RUN yarn --pure-lockfile
 
 ENV NUXT_HOST 0.0.0.0
 ENV NUXT_PORT 3000
