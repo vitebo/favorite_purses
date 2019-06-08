@@ -4,7 +4,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: 'http://vitebo.github.io/favorite_purses'
+          base: 'https://vitebo.github.io/favorite_purses'
         }
       }
     : {}
