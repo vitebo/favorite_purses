@@ -67,6 +67,7 @@ export default {
 .q-side-menu__target {
   background-color: transparent;
   border: none;
+  padding: 0;
 }
 
 .q-side-menu__content {

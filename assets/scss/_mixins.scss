@@ -6,3 +6,8 @@
 
   border-#{$direction}-color: $color;
 }
+
+@mixin size($size) {
+  height: $size;
+  width: $size;
+}

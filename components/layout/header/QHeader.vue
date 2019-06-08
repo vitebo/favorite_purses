@@ -37,14 +37,18 @@ export default {
   padding: $space-s 0;
 }
 
+.q-header__helper-menu,
+.q-header__account {
+  flex: 0 1 80px;
+  padding: 0 $space-m;
+}
+
 .q-header__helper-menu {
   border-right: $space-xxs solid $neutral-color-gray-lighter;
-  padding: 0 $space-m;
 }
 
 .q-header__account {
   border-left: $space-xxs solid $neutral-color-gray-lighter;
-  padding: 0 $space-m;
 }
 
 .q-header__logo {

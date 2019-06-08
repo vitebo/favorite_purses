@@ -32,10 +32,13 @@ export default {
 <style lang="scss">
 .q-item {
   color: $primary-color-dark;
+  display: inline-block;
+  text-align: center;
   text-decoration: none;
 }
 
 .q-item__icon {
+  @include size(22px);
   display: block;
   margin: 0 auto;
 }
