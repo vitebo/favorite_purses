@@ -25,10 +25,10 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 build
 ```
-docker build -t favorite_purses:1.0 .
+docker-compose build
 ```
 
 run
 ```
-docker run -itp 3000:3000 favorite_purses:1.0
+docker-compose up
 ```
