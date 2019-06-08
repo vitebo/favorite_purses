@@ -4,13 +4,23 @@
       Ajuda
     </div>
     <div class="q-header__item">
-      Logo
+      <q-logo class="q-header__logo" />
     </div>
     <div class="q-header__item q-header__item--last">
       Login
     </div>
   </header>
 </template>
+
+<script>
+import QLogo from '~/components/QLogo'
+
+export default {
+  components: {
+    QLogo
+  }
+}
+</script>
 
 <style lang="scss">
 $header-height: 64px;
@@ -37,5 +47,9 @@ $divisor-color: #eeeeee;
 
 .q-header__item--last {
   border-left: $space-xxs solid $divisor-color;
+}
+
+.q-header__logo {
+  height: 100%;
 }
 </style>
