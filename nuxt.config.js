@@ -1,5 +1,5 @@
 const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
+  process.env.DEPLOY_ENV === 'PROD'
     ? {
         router: {
           base: '/favorite_purses/'

@@ -10,10 +10,10 @@
     "test": "jest",
     "dev": "nuxt",
     "build": "nuxt build",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "build:prod": "DEPLOY_ENV=PROD nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
+    "generate:prod": "DEPLOY_ENV=PROD nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
