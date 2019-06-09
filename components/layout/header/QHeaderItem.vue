@@ -62,7 +62,6 @@ export default {
 
 .q-item__text {
   font-weight: $font-weight-bold;
-  margin: 0 $space-s;
 
   @include media-breakpoint-down(sm) {
     display: none;
@@ -70,6 +69,10 @@ export default {
 
   @include media-breakpoint-between(sm, md) {
     font-size: $font-size-small;
+  }
+
+  @include media-breakpoint-up(sm) {
+    margin: 0 $space-s;
   }
 }
 
