@@ -109,10 +109,6 @@ export default {
 .q-item__content {
   display: flex;
   flex-direction: column;
-
-  @include media-breakpoint-up(sm) {
-    margin: 0 $space-s;
-  }
 }
 
 .q-item__content--desktop {
