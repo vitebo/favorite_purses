@@ -78,6 +78,10 @@ export default {
   color: $primary-color-dark;
   display: flex;
   text-decoration: none;
+
+  @include media-breakpoint-up(sm) {
+    line-height: 1;
+  }
 }
 
 .q-item--reverse {
@@ -89,17 +93,26 @@ export default {
     flex-direction: column;
     text-align: center;
   }
+
+  .q-item__icon {
+    margin-right: 0;
+  }
 }
 
 .q-item__icon {
   @include min-size(22px);
 
   display: block;
+  margin-right: $space-s;
 }
 
 .q-item__content {
   display: flex;
   flex-direction: column;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0 $space-s;
+  }
 }
 
 .q-item__content--desktop {
@@ -117,7 +130,6 @@ export default {
 .q-item__text {
   font-size: $font-size-small;
   font-weight: $font-weight-bold;
-  margin: 0 $space-s;
   transition: font-size $transition;
 
   @include media-breakpoint-down(sm) {

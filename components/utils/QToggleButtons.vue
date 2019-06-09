@@ -100,10 +100,18 @@ export default {
       border-bottom-right-radius: $space-xs;
     }
   }
+
+  &:hover {
+    background-color: $neutral-color-gray-lighter;
+  }
 }
 
 .q-toggle-buttons__button--active {
   background-color: $primary-color-dark;
   color: $neutral-color-white;
+
+  &:hover {
+    background-color: $primary-color-dark;
+  }
 }
 </style>

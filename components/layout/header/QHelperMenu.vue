@@ -72,7 +72,7 @@ export default {
 
 .q-helper-menu__item {
   @include media-breakpoint-down(sm) {
-    padding: $space-s $space-m;
+    padding: $space-s $space-st $space-s $container-gap;
   }
 }
 

@@ -49,8 +49,6 @@ export default {
 <style lang="scss">
 .page {
   @extend %container;
-
-  padding: 0 $space-m;
 }
 
 .page__breadcrumb {
