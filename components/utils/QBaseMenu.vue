@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import QOverlay from '~/components/layout/QOverlay'
+import QOverlay from './QOverlay'
 
 export default {
   components: {

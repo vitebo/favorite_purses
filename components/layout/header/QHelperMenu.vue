@@ -7,33 +7,32 @@
     </template>
     <ul class="q-helper-menu__list">
       <li class="q-helper-menu__item">
-        <q-helper-menu-item main-text="Como funciona">
+        <q-header-item text="Como funciona" modifier="secondary">
           <q-icon-info />
-        </q-helper-menu-item>
+        </q-header-item>
       </li>
-      <li class="q-helper-menu__item--last">
-        <q-helper-menu-item
-          main-text="0800 123 2222"
+      <li class="q-helper-menu__item q-helper-menu__item--last">
+        <q-header-item
+          text="0800 123 2222"
           secondary-text="Envie mensagem ou ligue"
+          modifier="secondary"
         >
           <q-icon-whats-app class="q-helper-menu__whatsapp-icon" />
-        </q-helper-menu-item>
+        </q-header-item>
       </li>
     </ul>
   </q-base-menu>
 </template>
 
 <script>
-import QHelperMenuItem from './QHelperMenuItem'
 import QHeaderItem from './QHeaderItem'
 
 import QIconInfo from '~/components/q-icons/QIconInfo'
 import QIconWhatsApp from '~/components/q-icons/QIconWhatsApp'
-import QBaseMenu from '~/components/layout/menu/QBaseMenu'
+import QBaseMenu from '~/components/utils/QBaseMenu'
 
 export default {
   components: {
-    QHelperMenuItem,
     QHeaderItem,
     QIconInfo,
     QIconWhatsApp,
@@ -69,6 +68,12 @@ export default {
       position: absolute;
       top: $size * -2;
     }
+  }
+}
+
+.q-helper-menu__item {
+  @include media-breakpoint-down(sm) {
+    padding: $space-s $space-m;
   }
 }
 

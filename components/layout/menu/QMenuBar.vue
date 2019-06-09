@@ -1,5 +1,5 @@
 <template>
-  <div class="q-menu-bar">
+  <nav class="q-menu-bar">
     <strong class="q-menu-bar__title">Minha conta</strong>
     <q-base-menu theme="primary" @change="onChange" @close="onClose">
       <template v-slot:target>
@@ -17,12 +17,11 @@
         </li>
       </ul>
     </q-base-menu>
-  </div>
+  </nav>
 </template>
 
 <script>
-import QBaseMenu from './QBaseMenu'
-
+import QBaseMenu from '~/components/utils/QBaseMenu'
 import QIconBase from '~/components/q-icons/QIconBase'
 import QIconChevronDown from '~/components/q-icons/QIconChevronDown'
 
