@@ -1,29 +1,34 @@
 <template>
   <div class="q-menu-bar">
     <strong class="q-menu-bar__title">Minha conta</strong>
-    <div>
-      <button class="q-menu-bar__target" @click="toggleMenu">
-        Menu
-        <q-icon-base :class="iconClass" height="14px" width="14px">
-          <q-icon-chevron-down />
-        </q-icon-base>
-      </button>
-      <ul :class="menuContentClass">
+    <q-base-menu theme="primary" @change="onChange" @close="onClose">
+      <template v-slot:target>
+        <div class="q-menu-bar__target">
+          Menu
+          <q-icon-base height="14px" width="14px" :class="iconClass">
+            <q-icon-chevron-down />
+          </q-icon-base>
+        </div>
+      </template>
+      <ul class="q-menu-bar__list">
         <li class="q-menu-bar__item">Pré-matriculas</li>
         <li class="q-menu-bar__item q-menu-bar__item--active">
           Bolsas favoritas
         </li>
       </ul>
-    </div>
+    </q-base-menu>
   </div>
 </template>
 
 <script>
+import QBaseMenu from './QBaseMenu'
+
 import QIconBase from '~/components/q-icons/QIconBase'
 import QIconChevronDown from '~/components/q-icons/QIconChevronDown'
 
 export default {
   components: {
+    QBaseMenu,
     QIconBase,
     QIconChevronDown
   },
@@ -33,24 +38,20 @@ export default {
     }
   },
   computed: {
-    menuContentClass() {
-      return [
-        'q-menu-bar__list',
-        { 'q-menu-bar__list--show': this.isTheVisibleMenu }
-      ]
-    },
     iconClass() {
-      return [
-        'q-menu-bar__icon',
-        { 'q-menu-bar__icon--up': this.isTheVisibleMenu }
-      ]
+      const className = 'q-menu-bar__icon'
+
+      const modifier = {}
+      modifier[`${className}--up`] = this.isTheVisibleMenu
+
+      return [className, modifier]
     }
   },
   methods: {
-    toggleMenu() {
-      this.isTheVisibleMenu = !this.isTheVisibleMenu
+    onChange(isTheVisibleMenu) {
+      this.isTheVisibleMenu = isTheVisibleMenu
     },
-    closeMenu() {
+    onClose() {
       this.isTheVisibleMenu = false
     }
   }
@@ -76,20 +77,15 @@ export default {
 }
 
 .q-menu-bar__target {
-  background-color: transparent;
-  border: none;
   color: $neutral-color-white;
   font-size: $font-size-normal;
   font-weight: $font-weight-bold;
   line-height: 1.5;
   padding: $space-s $space-m;
-
-  @include media-breakpoint-up(sm) {
-    display: none;
-  }
 }
 
 .q-menu-bar__list {
+  background-color: $primary-color;
   display: flex;
   list-style: none;
   margin: 0;
@@ -97,21 +93,7 @@ export default {
 
   @include media-breakpoint-down(sm) {
     box-shadow: $low-box-shadow;
-    position: absolute;
-    background-color: $primary-color;
-    width: 100%;
-    left: 0;
-    transform: translateY(-100%);
-    transform-origin: top;
-    transition: transform $transition;
-    z-index: -1;
     display: block;
-  }
-}
-
-.q-menu-bar__list--show {
-  @include media-breakpoint-down(sm) {
-    transform: translateY(0);
   }
 }
 
