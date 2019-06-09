@@ -56,7 +56,7 @@ export default {
     background-color: $neutral-color-gray-lightest;
     box-shadow: $high-box-shadow;
     height: calc(100vh - #{$header-height});
-    padding: $space-s $space-st $space-s 0;
+    padding: $space-m 0;
 
     &::before {
       $size: 10px;
