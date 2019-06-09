@@ -1,38 +1,58 @@
-# favorite_purses
+# Favorite Purses
 
 [![Build Status](https://travis-ci.org/vitebo/favorite_purses.svg?branch=master)](https://travis-ci.org/vitebo/favorite_purses)
 
-[Demo](https://vitebo.github.io/favorite_purses/)
+Acesse a **[aplicação em produção](https://vitebo.github.io/favorite_purses/)**
 
-> My wondrous Nuxt.js project
+## Configurando o ambiente de desenvolvimento
 
-## Build Setup
+### Ambiente de desenvolvimento Docker
+
+Para configurar o ambiente de desenvolvimento utilizando o Docker para isolamento do ambiente.
+
+```bash
+# monta a imagem
+$ docker-compose build
+
+# sobe o container
+$ docker-compose up
+```
+
+### Configurando diretamente o ambiente
+
+Para configurar o ambiente de desenvolvimento sem utilizar o Docker instalando diretamente os programas utilizados pelo sistema.
+
+#### Dependências
+
+- O projeto utiliza o [Yarn](https://yarnpkg.com) ao invés do [NPM](https://www.npmjs.com/) para gerenciamento de dependências
+- [Node](https://nodejs.org) na versão **12.4.0**
 
 ``` bash
-# install dependencies
-$ yarn install
+# instala as dependências
+$ yarn
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
+# sobe a aplicação
+$ yarn dev
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Fazendo deploy
 
-## Docker
+Para checar o resultado do deloy **[acesse a aplicação em produção](https://vitebo.github.io/favorite_purses/)**.
 
-build
-```
-docker-compose build
-```
+### Automático
 
-run
-```
-docker-compose up
+Todo *merge/commit* na *branch* **master** dispara um deploy automaticamente.
+
+Você pode acompanhar o andamento do *deploy* pelo **[travis](https://travis-ci.org/vitebo/favorite_purses)**.
+
+## Manual
+
+Existe a possibilidade de fazer um deploy manual.
+
+``` bash
+# gera o projeto estático
+$ yarn generate:prod
+
+# envia os arquivos para o servidor
+$ yarn deploy
 ```
