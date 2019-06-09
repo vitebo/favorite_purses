@@ -5,8 +5,8 @@
       <template v-slot:target>
         <div class="q-menu-bar__target">
           Menu
-          <q-icon-base height="14px" width="14px" :class="iconClass">
-            <q-icon-chevron-down />
+          <q-icon-base height="14px" width="14px" class="q-menu-bar__icon">
+            <q-icon-chevron :direction="arrowDirection" />
           </q-icon-base>
         </div>
       </template>
@@ -23,35 +23,28 @@
 <script>
 import QBaseMenu from '~/components/utils/QBaseMenu'
 import QIconBase from '~/components/q-icons/QIconBase'
-import QIconChevronDown from '~/components/q-icons/QIconChevronDown'
+import QIconChevron from '~/components/q-icons/QIconChevron'
 
 export default {
   components: {
     QBaseMenu,
     QIconBase,
-    QIconChevronDown
+    QIconChevron
   },
   data() {
     return {
-      isTheVisibleMenu: false
-    }
-  },
-  computed: {
-    iconClass() {
-      const className = 'q-menu-bar__icon'
-
-      const modifier = {}
-      modifier[`${className}--up`] = this.isTheVisibleMenu
-
-      return [className, modifier]
+      isTheVisibleMenu: false,
+      arrowDirection: 'bottom'
     }
   },
   methods: {
     onChange(isTheVisibleMenu) {
       this.isTheVisibleMenu = isTheVisibleMenu
+      this.arrowDirection = isTheVisibleMenu ? 'top' : 'bottom'
     },
     onClose() {
       this.isTheVisibleMenu = false
+      this.arrowDirection = 'bottom'
     }
   }
 }
@@ -110,11 +103,6 @@ export default {
 
 .q-menu-bar__icon {
   margin-left: $space-s;
-  transition: transform $transition;
   vertical-align: middle;
-}
-
-.q-menu-bar__icon--up {
-  transform: rotate(180deg);
 }
 </style>
