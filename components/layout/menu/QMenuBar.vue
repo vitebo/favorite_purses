@@ -65,6 +65,7 @@ export default {
   box-shadow: $low-box-shadow;
   color: $neutral-color-white;
   display: flex;
+  height: 40px;
 
   @include media-breakpoint-down(sm) {
     justify-content: space-between;
@@ -99,7 +100,7 @@ export default {
 
 .q-menu-bar__item {
   font-weight: $font-weight-bold;
-  padding: $space-m;
+  padding: $space-s $space-m;
   cursor: pointer;
   transition: background-color $transition;
 }

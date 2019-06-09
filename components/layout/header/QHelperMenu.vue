@@ -1,5 +1,5 @@
 <template>
-  <q-side-menu class="q-helper-menu">
+  <q-base-menu theme="secondary" :overlay="true" class="q-helper-menu">
     <template v-slot:target>
       <q-header-item text="Ajuda">
         <q-icon-info />
@@ -20,24 +20,24 @@
         </q-helper-menu-item>
       </li>
     </ul>
-  </q-side-menu>
+  </q-base-menu>
 </template>
 
 <script>
 import QHelperMenuItem from './QHelperMenuItem'
 import QHeaderItem from './QHeaderItem'
 
-import QSideMenu from '~/components/layout/QSideMenu'
 import QIconInfo from '~/components/q-icons/QIconInfo'
 import QIconWhatsApp from '~/components/q-icons/QIconWhatsApp'
+import QBaseMenu from '~/components/layout/menu/QBaseMenu'
 
 export default {
   components: {
     QHelperMenuItem,
     QHeaderItem,
-    QSideMenu,
     QIconInfo,
-    QIconWhatsApp
+    QIconWhatsApp,
+    QBaseMenu
   }
 }
 </script>
@@ -52,6 +52,23 @@ export default {
 
   @include media-breakpoint-up(sm) {
     display: flex;
+  }
+
+  @include media-breakpoint-down(sm) {
+    background-color: $neutral-color-gray-lightest;
+    box-shadow: $high-box-shadow;
+    height: calc(100vh - #{$header-height});
+    padding: $space-s $space-st $space-s 0;
+
+    &::before {
+      $size: 10px;
+
+      @include triangle($size, 'bottom', $neutral-color-gray-lightest);
+
+      left: $space-st;
+      position: absolute;
+      top: $size * -2;
+    }
   }
 }
 

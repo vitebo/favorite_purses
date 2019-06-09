@@ -1,6 +1,10 @@
 <template>
   <div class="q-base-menu">
-    <div v-if="overlay" :class="overlayClass" @click="closeMenu"></div>
+    <q-overlay
+      v-if="overlay"
+      :show-overlay="isTheVisibleMenu"
+      @clickOnOverlay="closeMenu"
+    />
     <button class="q-base-menu__target" @click="toggleMenu">
       <slot name="target" />
     </button>
@@ -11,7 +15,12 @@
 </template>
 
 <script>
+import QOverlay from '~/components/layout/QOverlay'
+
 export default {
+  components: {
+    QOverlay
+  },
   props: {
     theme: {
       type: String,
@@ -65,7 +74,6 @@ export default {
 .q-base-menu__content-secondary {
   @include media-breakpoint-down(sm) {
     position: absolute;
-    width: 100%;
     left: 0;
     transition: transform $transition;
   }
@@ -73,20 +81,23 @@ export default {
 
 .q-base-menu__content-primary {
   @include media-breakpoint-down(sm) {
-    transform: translateY(-100%);
+    transform: scaleY(0);
     transform-origin: top;
-    z-index: -1;
+    width: 100%;
   }
 }
 
 .q-base-menu__content-primary--show {
   @include media-breakpoint-down(sm) {
-    transform: translateY(0);
+    transform: scaleY(1);
   }
 }
 
 .q-base-menu__content-secondary {
+  z-index: 1;
+
   @include media-breakpoint-down(sm) {
+    bottom: 0;
     height: calc(100vh - #{$header-height});
     transform: translateX(-100%);
   }
