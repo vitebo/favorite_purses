@@ -46,9 +46,10 @@ export default {
 
 .q-header__container {
   @extend %container;
-  justify-content: space-between;
-  display: flex;
+
   align-items: center;
+  display: flex;
+  justify-content: space-between;
   padding: $space-s 0;
 }
 

@@ -86,8 +86,8 @@ export default {
 
 .q-item--primary {
   @include media-breakpoint-down(sm) {
-    text-align: center;
     flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -117,8 +117,8 @@ export default {
 .q-item__text {
   font-size: $font-size-small;
   font-weight: $font-weight-bold;
-  transition: font-size $transition;
   margin: 0 $space-s;
+  transition: font-size $transition;
 
   @include media-breakpoint-down(sm) {
     font-size: $font-size-normal;

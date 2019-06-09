@@ -47,14 +47,11 @@ export default {
 </script>
 
 <style lang="scss">
-.q-breadcrumb {
-}
-
 .q-breadcrumb__list {
-  list-style: none;
   display: flex;
-  padding-left: 0;
+  list-style: none;
   margin: 0;
+  padding-left: 0;
 
   @include media-breakpoint-down(sm) {
     display: none;
@@ -69,9 +66,9 @@ export default {
 }
 
 .q-breadcrumb__link {
-  text-decoration: none;
   color: $primary-color-dark;
   font-weight: $font-weight-bold;
+  text-decoration: none;
   transition: color $transition;
 
   &:hover {
@@ -79,10 +76,10 @@ export default {
   }
 
   &::after {
-    content: '/';
-    padding: $space-s;
     color: $neutral-color-black;
+    content: '/';
     font-weight: $font-weight-normal;
+    padding: $space-s;
   }
 }
 
@@ -97,8 +94,8 @@ export default {
 }
 
 .q-breadcrumb__icon {
-  margin-top: $space-xxs * -1;
   margin-right: $space-xs;
+  margin-top: $space-xxs * -1;
   vertical-align: middle;
 }
 </style>

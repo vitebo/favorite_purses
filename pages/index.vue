@@ -38,6 +38,7 @@ export default {
 <style lang="scss">
 .page {
   @extend %container;
+
   padding: 0 $space-m;
 }
 
@@ -46,12 +47,12 @@ export default {
 }
 
 .page__title {
-  margin-top: $space-m;
   margin-bottom: 0;
+  margin-top: $space-m;
 }
 
 .page__description {
-  margin-top: $space-s;
   margin-bottom: 0;
+  margin-top: $space-s;
 }
 </style>

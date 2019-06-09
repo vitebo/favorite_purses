@@ -62,6 +62,7 @@ export default {
 
 .q-menu-bar__container {
   @extend %container;
+
   align-items: center;
   display: flex;
 

@@ -29,8 +29,8 @@ export default {
 
 <style lang="scss">
 .q-chevron {
-  transition: transform $transition;
   transform-origin: center;
+  transition: transform $transition;
 }
 
 .q-chevron--right {
