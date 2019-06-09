@@ -36,16 +36,16 @@ export default {
   z-index: 1;
 
   @include media-breakpoint-down(sm) {
-    left: 0;
-    top: $header-height;
-    position: absolute;
     background-color: $overlay-color;
+    left: 0;
+    position: absolute;
+    top: $header-height;
   }
 }
 
 .q-overlay--show {
+  height: calc(100vh - #{$header-height});
   opacity: 1;
   width: 100vw;
-  height: calc(100vh - #{$header-height});
 }
 </style>

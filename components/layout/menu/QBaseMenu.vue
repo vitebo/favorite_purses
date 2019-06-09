@@ -73,8 +73,8 @@ export default {
 .q-base-menu__content-primary,
 .q-base-menu__content-secondary {
   @include media-breakpoint-down(sm) {
-    position: absolute;
     left: 0;
+    position: absolute;
     transition: transform $transition;
   }
 }

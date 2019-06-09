@@ -10,7 +10,6 @@ $breakpoints: (
   lg: $screen-lg,
 );
 
-
 @mixin media-breakpoint-up($name) {
   $min: map-get($breakpoints, $name);
 

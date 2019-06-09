@@ -73,8 +73,8 @@ export default {
 }
 
 .q-menu-bar__title {
-  padding: $space-s $space-m;
   margin-right: $space-st;
+  padding: $space-s $space-m;
 }
 
 .q-menu-bar__target {
@@ -99,9 +99,9 @@ export default {
 }
 
 .q-menu-bar__item {
+  cursor: pointer;
   font-weight: $font-weight-bold;
   padding: $space-s $space-m;
-  cursor: pointer;
   transition: background-color $transition;
 }
 
@@ -110,9 +110,9 @@ export default {
 }
 
 .q-menu-bar__icon {
-  vertical-align: middle;
   margin-left: $space-s;
   transition: transform $transition;
+  vertical-align: middle;
 }
 
 .q-menu-bar__icon--up {

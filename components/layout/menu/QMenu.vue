@@ -1,5 +1,3 @@
 <template>
-  <div class="q-side-menu">
-    
-  </div>
+  <div class="q-side-menu"></div>
 </template>

@@ -67,7 +67,7 @@ export default {
 }
 
 .q-header__logo {
-  height: 42px;
   flex-shrink: 0;
+  height: 42px;
 }
 </style>

@@ -82,6 +82,7 @@ export default {
 
 .q-helper-menu__whatsapp-icon {
   $whatsapp-color: #25d366;
+
   color: $whatsapp-color;
 }
 </style>

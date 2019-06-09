@@ -56,6 +56,7 @@ export default {
 
 .q-item__icon {
   @include size(22px);
+
   display: block;
   margin: 0 auto;
 }
