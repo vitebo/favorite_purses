@@ -37,8 +37,7 @@ export default {
 
 <style lang="scss">
 .page {
-  max-width: 1200px;
-  margin: 0 auto;
+  @extend %container;
   padding: 0 $space-m;
 }
 

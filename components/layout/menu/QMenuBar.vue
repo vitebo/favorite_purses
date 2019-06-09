@@ -1,22 +1,24 @@
 <template>
   <nav class="q-menu-bar">
-    <strong class="q-menu-bar__title">Minha conta</strong>
-    <q-base-menu theme="primary" @change="onChange" @close="onClose">
-      <template v-slot:target>
-        <div class="q-menu-bar__target">
-          Menu
-          <q-icon-base height="14px" width="14px" class="q-menu-bar__icon">
-            <q-icon-chevron :direction="arrowDirection" />
-          </q-icon-base>
-        </div>
-      </template>
-      <ul class="q-menu-bar__list">
-        <li class="q-menu-bar__item">Pré-matriculas</li>
-        <li class="q-menu-bar__item q-menu-bar__item--active">
-          Bolsas favoritas
-        </li>
-      </ul>
-    </q-base-menu>
+    <div class="q-menu-bar__container">
+      <strong class="q-menu-bar__title">Minha conta</strong>
+      <q-base-menu theme="primary" @change="onChange" @close="onClose">
+        <template v-slot:target>
+          <div class="q-menu-bar__target">
+            Menu
+            <q-icon-base height="14px" width="14px" class="q-menu-bar__icon">
+              <q-icon-chevron :direction="arrowDirection" />
+            </q-icon-base>
+          </div>
+        </template>
+        <ul class="q-menu-bar__list">
+          <li class="q-menu-bar__item">Pré-matriculas</li>
+          <li class="q-menu-bar__item q-menu-bar__item--active">
+            Bolsas favoritas
+          </li>
+        </ul>
+      </q-base-menu>
+    </div>
   </nav>
 </template>
 
@@ -52,12 +54,16 @@ export default {
 
 <style lang="scss">
 .q-menu-bar {
-  align-items: center;
   background: $primary-color;
   box-shadow: $low-box-shadow;
   color: $neutral-color-white;
-  display: flex;
   height: 40px;
+}
+
+.q-menu-bar__container {
+  @extend %container;
+  align-items: center;
+  display: flex;
 
   @include media-breakpoint-down(sm) {
     justify-content: space-between;

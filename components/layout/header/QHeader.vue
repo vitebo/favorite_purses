@@ -1,18 +1,20 @@
 <template>
   <header class="q-header">
-    <div class="q-header__helper-menu">
-      <q-helper-menu />
-    </div>
-    <q-logo class="q-header__logo" />
-    <div class="q-header__account">
-      <q-header-item
-        text="Nome Sobrenome"
-        short-text="Conta"
-        modifier="primary"
-        :reverse="true"
-      >
-        <q-icon-user-circle />
-      </q-header-item>
+    <div class="q-header__container">
+      <div class="q-header__helper-menu">
+        <q-helper-menu />
+      </div>
+      <q-logo class="q-header__logo" />
+      <div class="q-header__account">
+        <q-header-item
+          text="Nome Sobrenome"
+          short-text="Conta"
+          modifier="primary"
+          :reverse="true"
+        >
+          <q-icon-user-circle />
+        </q-header-item>
+      </div>
     </div>
   </header>
 </template>
@@ -36,13 +38,17 @@ export default {
 
 <style lang="scss">
 .q-header {
-  align-items: center;
   background-color: $neutral-color-white;
   border-bottom: solid 1px $neutral-color-gray-lighter;
   box-shadow: $low-box-shadow;
-  display: flex;
   height: $header-height;
+}
+
+.q-header__container {
+  @extend %container;
   justify-content: space-between;
+  display: flex;
+  align-items: center;
   padding: $space-s 0;
 }
 
