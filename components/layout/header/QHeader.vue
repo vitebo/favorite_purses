@@ -5,7 +5,12 @@
     </div>
     <q-logo class="q-header__logo" />
     <div class="q-header__account">
-      <q-header-item text="Nome Sobrenome" short-text="Conta">
+      <q-header-item
+        text="Nome Sobrenome"
+        short-text="Conta"
+        modifier="primary"
+        :reverse="true"
+      >
         <q-icon-user-circle />
       </q-header-item>
     </div>

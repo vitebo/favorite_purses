@@ -1,13 +1,13 @@
 <template>
   <q-base-menu theme="secondary" :overlay="true" class="q-helper-menu">
     <template v-slot:target>
-      <q-header-item text="Ajuda">
+      <q-header-item text="Ajuda" modifier="primary">
         <q-icon-info />
       </q-header-item>
     </template>
     <ul class="q-helper-menu__list">
       <li class="q-helper-menu__item">
-        <q-header-item text="Como funciona" modifier="secondary">
+        <q-header-item text="Como funciona">
           <q-icon-info />
         </q-header-item>
       </li>
@@ -15,7 +15,6 @@
         <q-header-item
           text="0800 123 2222"
           secondary-text="Envie mensagem ou ligue"
-          modifier="secondary"
         >
           <q-icon-whats-app class="q-helper-menu__whatsapp-icon" />
         </q-header-item>

@@ -49,6 +49,10 @@ export default {
     modifier: {
       type: [String, Boolean],
       default: false
+    },
+    reverse: {
+      type: [Boolean],
+      default: false
     }
   },
   computed: {
@@ -60,6 +64,7 @@ export default {
 
       const modifier = {}
       modifier[`${className}--${this.modifier}`] = this.modifier
+      modifier[`${className}--reverse`] = this.reverse
 
       return [className, modifier]
     }
@@ -75,12 +80,14 @@ export default {
   text-decoration: none;
 }
 
-.q-item--primary {
-  text-align: center;
-  flex-direction: column;
+.q-item--reverse {
+  flex-direction: row-reverse;
+}
 
-  @include media-breakpoint-up(sm) {
-    flex-direction: row-reverse;
+.q-item--primary {
+  @include media-breakpoint-down(sm) {
+    text-align: center;
+    flex-direction: column;
   }
 }
 
