@@ -17,18 +17,36 @@
         <q-toggle-buttons :items="semestersFilter" />
       </div>
     </header>
-    <main></main>
+    <main class="page__main">
+      <q-card class="page__card">
+        <div>
+          <q-icon-base height="64px" width="64px" class="page__card-icon">
+            <q-icon-plus-circle />
+          </q-icon-base>
+          <h2 class="page__card-title">Adicionar bolsa</h2>
+          <p class="page__card-text">
+            Clique para adicionar bolsas de cursos do seu interesse
+          </p>
+        </div>
+      </q-card>
+    </main>
   </div>
 </template>
 
 <script>
 import QBreadcrumb from '~/components/utils/QBreadcrumb'
 import QToggleButtons from '~/components/utils/QToggleButtons'
+import QCard from '~/components/utils/QCard'
+import QIconPlusCircle from '~/components/q-icons/QIconPlusCircle'
+import QIconBase from '~/components/q-icons/QIconBase'
 
 export default {
   components: {
     QBreadcrumb,
-    QToggleButtons
+    QToggleButtons,
+    QCard,
+    QIconPlusCircle,
+    QIconBase
   },
   data() {
     return {
@@ -57,6 +75,7 @@ export default {
 }
 
 .page__title {
+  font-size: 2.3rem;
   line-height: 1;
   margin-bottom: 0;
   margin-top: $space-st;
@@ -70,10 +89,43 @@ export default {
 .page__toggle-buttons {
   display: flex;
   justify-content: flex-end;
-  margin-top: $space-st;
+  margin-top: $space-l;
 
   @include media-breakpoint-down(sm) {
     width: 100%;
   }
+}
+
+.page__main {
+  margin-top: $space-st;
+  margin-bottom: $space-st;
+}
+
+.page__card {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  display: flex;
+  transition: width $transition;
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    width: 280px;
+  }
+}
+
+.page__card-icon {
+  color: $primary-color;
+  margin-bottom: $space-st;
+}
+
+.page__card-title {
+  margin: 0;
+  font-size: rem(20);
+}
+
+.page__card-text {
+  margin: 0;
 }
 </style>

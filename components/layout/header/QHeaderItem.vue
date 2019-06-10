@@ -78,9 +78,14 @@ export default {
   color: $primary-color-dark;
   display: flex;
   text-decoration: none;
+  transition: color $transition;
 
   @include media-breakpoint-up(sm) {
     line-height: 1;
+  }
+
+  &:hover {
+    color: $primary-color;
   }
 }
 
@@ -104,6 +109,12 @@ export default {
 
 .q-item--primary > .q-item__icon {
   margin-right: 0;
+}
+
+.q-item--reverse > .q-item__icon {
+  @include media-breakpoint-up(sm) {
+    margin-left: $space-s;
+  }
 }
 
 .q-item__content {
@@ -135,9 +146,5 @@ export default {
 
 .q-item__text--main {
   font-size: $font-size-normal;
-
-  @include media-breakpoint-between(sm, md) {
-    font-size: $font-size-small;
-  }
 }
 </style>
