@@ -61,7 +61,6 @@ export default {
 .q-breadcrumb__link,
 .q-breadcrumb__current {
   display: inline-block;
-  font-size: $font-size-small;
   padding: $space-s 0;
 }
 

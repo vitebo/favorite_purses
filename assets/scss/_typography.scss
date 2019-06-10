@@ -1,8 +1,12 @@
+@function rem($size, $context: 16px) {
+  @return (($size * 1px) / $context) * 1rem;
+}
+
 $font-family: proxima-nova, Arial, Helvetica, 'Open Sans', sans-serif;
 
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
-$font-size-small: 1.3rem;
-$font-size-normal: 1.6rem;
-$font-size-large: 1.9rem;
+$font-size-small: rem(13);
+$font-size-normal: rem(16);
+$font-size-large: rem(19);

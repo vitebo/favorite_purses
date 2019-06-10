@@ -26,13 +26,13 @@ export default {
 }
 
 html {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 body {
   background-color: $neutral-color-gray-lightest;
   color: $neutral-color-black;
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: $font-weight-normal;
   line-height: 1.5;
   margin: 0;

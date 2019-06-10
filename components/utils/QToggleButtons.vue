@@ -57,15 +57,15 @@ export default {
 }
 
 .q-toggle-buttons__button {
+  background-color: transparent;
+  border: 1px solid $primary-color-dark;
   color: $primary-color-dark;
   cursor: pointer;
-  border: 1px solid $primary-color-dark;
-  background-color: transparent;
-  font-weight: $font-weight-bold;
   font-size: $font-size-normal;
+  font-weight: $font-weight-bold;
   padding: $space-s $space-st;
-  transition-property: color, background-color;
   transition: $transition;
+  transition-property: color, background-color;
 
   @include media-breakpoint-down(sm) {
     padding: $space-m $space-st;
@@ -80,8 +80,8 @@ export default {
     }
 
     &:last-child {
-      border-bottom-right-radius: $space-xs;
       border-bottom-left-radius: $space-xs;
+      border-bottom-right-radius: $space-xs;
     }
   }
 
@@ -91,13 +91,13 @@ export default {
     }
 
     &:first-child {
-      border-top-left-radius: $space-xs;
       border-bottom-left-radius: $space-xs;
+      border-top-left-radius: $space-xs;
     }
 
     &:last-child {
-      border-top-right-radius: $space-xs;
       border-bottom-right-radius: $space-xs;
+      border-top-right-radius: $space-xs;
     }
   }
 
