@@ -93,10 +93,6 @@ export default {
     flex-direction: column;
     text-align: center;
   }
-
-  .q-item__icon {
-    margin-right: 0;
-  }
 }
 
 .q-item__icon {
@@ -104,6 +100,10 @@ export default {
 
   display: block;
   margin-right: $space-s;
+}
+
+.q-item--primary > .q-item__icon {
+  margin-right: 0;
 }
 
 .q-item__content {

@@ -17,6 +17,7 @@
         <q-toggle-buttons :items="semestersFilter" />
       </div>
     </header>
+    <main></main>
   </div>
 </template>
 
@@ -56,9 +57,9 @@ export default {
 }
 
 .page__title {
+  line-height: 1;
   margin-bottom: 0;
   margin-top: $space-st;
-  line-height: 1;
 }
 
 .page__description {
