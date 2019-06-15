@@ -18,17 +18,7 @@
       </div>
     </header>
     <main class="page__main">
-      <q-card class="page__card">
-        <div>
-          <q-icon-base height="64px" width="64px" class="page__card-icon">
-            <q-icon-plus-circle />
-          </q-icon-base>
-          <h2 class="page__card-title">Adicionar bolsa</h2>
-          <p class="page__card-text">
-            Clique para adicionar bolsas de cursos do seu interesse
-          </p>
-        </div>
-      </q-card>
+      <q-add-offer-card />
     </main>
   </div>
 </template>
@@ -36,17 +26,13 @@
 <script>
 import QBreadcrumb from '~/components/utils/QBreadcrumb'
 import QToggleButtons from '~/components/utils/QToggleButtons'
-import QCard from '~/components/utils/QCard'
-import QIconPlusCircle from '~/components/q-icons/QIconPlusCircle'
-import QIconBase from '~/components/q-icons/QIconBase'
+import QAddOfferCard from '~/page-components/QAddOfferCard'
 
 export default {
   components: {
     QBreadcrumb,
     QToggleButtons,
-    QCard,
-    QIconPlusCircle,
-    QIconBase
+    QAddOfferCard
   },
   data() {
     return {
