@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <q-header />
-    <q-menu-bar />
-    <nuxt />
+  <div class="l-default">
+    <div>
+      <q-header />
+      <q-menu-bar />
+    </div>
+    <div>
+      <nuxt />
+    </div>
     <q-footer />
   </div>
 </template>
@@ -47,5 +51,12 @@ input,
 select,
 textarea {
   font-family: $font-family;
+}
+
+.l-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }
 </style>
