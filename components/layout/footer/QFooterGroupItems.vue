@@ -7,6 +7,7 @@
             :title="item.title"
             :description="item.description"
             :short-description="item.shortDescription"
+            :short-title="item.shortTitle"
             :modifier="item.modifier"
           >
             <component :is="item.icon" />
