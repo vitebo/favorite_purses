@@ -86,32 +86,4 @@ export default {
   margin-top: $space-st;
   margin-bottom: $space-st;
 }
-
-.page__card {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 400px;
-  display: flex;
-  transition: width $transition;
-  width: 100%;
-
-  @include media-breakpoint-up(sm) {
-    width: 280px;
-  }
-}
-
-.page__card-icon {
-  color: $primary-color;
-  margin-bottom: $space-st;
-}
-
-.page__card-title {
-  margin: 0;
-  font-size: rem(20);
-}
-
-.page__card-text {
-  margin: 0;
-}
 </style>
