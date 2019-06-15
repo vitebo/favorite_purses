@@ -3,17 +3,20 @@
     <q-header />
     <q-menu-bar />
     <nuxt />
+    <q-footer />
   </div>
 </template>
 
 <script>
 import QHeader from '~/components/layout/header/QHeader.vue'
 import QMenuBar from '~/components/layout/menu/QMenuBar.vue'
+import QFooter from '~/components/layout/footer/QFooter.vue'
 
 export default {
   components: {
     QHeader,
-    QMenuBar
+    QMenuBar,
+    QFooter
   }
 }
 </script>
