@@ -71,28 +71,45 @@ export default {
   padding: $space-m $space-st;
   text-decoration: none;
   text-align: center;
+
+  @include media-breakpoint-up(md) {
+    align-items: center;
+    flex-direction: row;
+    text-align: left;
+  }
 }
 
 .q-footer-item--large {
-  align-items: center;
-  flex-direction: row;
-  text-align: left;
+  @include media-breakpoint-down(sm) {
+    align-items: center;
+    flex-direction: row;
+    text-align: left;
 
-  .q-footer-item__content--mobile {
-    & > .q-footer-item__description {
-      display: block;
+    .q-footer-item__content--mobile {
+      & > .q-footer-item__description {
+        display: block;
+      }
     }
-  }
 
-  .q-footer-item__icon {
-    margin-right: $space-s;
-    margin-left: 0;
+    .q-footer-item__icon {
+      margin-right: $space-s;
+      margin-left: 0;
+      margin-bottom: 0;
+    }
   }
 }
 
 .q-footer-item__icon {
   @include min-size(32px);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $space-s;
+
+  @include media-breakpoint-up(md) {
+    margin-right: $space-s;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
 }
 
 .q-footer-item__content--desktop {
@@ -116,6 +133,7 @@ export default {
 }
 
 .q-footer-item__description {
+  font-size: $font-size-small;
   margin: 0;
 }
 </style>

@@ -91,23 +91,31 @@ export default {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
+
+  @include media-breakpoint-up(sm) {
+    flex-wrap: nowrap;
+  }
 }
 
 .q-footer__item {
-  flex: 1 1 auto;
+  background-color: $primary-color;
+  flex: 1 1 0;
 }
 
 .q-footer__item--large {
-  flex-basis: 100%;
+  @include media-breakpoint-down(sm) {
+    flex-basis: 100%;
+  }
 }
 
 .q-footer__item--small {
-  flex-basis: 0;
-  margin-right: $space-xxs;
-  margin-top: $space-xxs;
+  @include media-breakpoint-down(sm) {
+    margin-right: $space-xxs;
+    margin-top: $space-xxs;
 
-  &:last-child {
-    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 
