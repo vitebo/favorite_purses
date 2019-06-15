@@ -2,41 +2,14 @@
   <footer class="q-footer">
     <div class="q-footer__container">
       <ul class="q-footer__list">
-        <li class="q-footer__item q-footer__item--large">
+        <li v-for="item in items" :key="item.title" :class="getItemClass(item)">
           <q-footer-item
-            title="0800 123 2222"
-            description="Seg - Sex 8h-22h"
-            short-description="Segunda a sexta de 8h às 22h"
-            modifier="large"
+            :title="item.title"
+            :description="item.description"
+            :short-description="item.shortDescription"
+            :modifier="item.modifier"
           >
-            <q-icon-whats-app />
-          </q-footer-item>
-        </li>
-        <li class="q-footer__item q-footer__item--small">
-          <q-footer-item
-            title="Chat ao vivo"
-            description="Seg - Sex 8h-22h"
-            short-title="Chat"
-          >
-            <q-icon-comments />
-          </q-footer-item>
-        </li>
-        <li class="q-footer__item q-footer__item--small">
-          <q-footer-item
-            title="Mande um e-mail"
-            description="Respondemos rapidinho"
-            short-title="E-mail"
-          >
-            <q-icon-envelope />
-          </q-footer-item>
-        </li>
-        <li class="q-footer__item q-footer__item--small">
-          <q-footer-item
-            title="Central de ajuda"
-            description="Encontre todas as respostas"
-            short-title="Ajuda"
-          >
-            <q-icon-info />
+            <component :is="item.icon" />
           </q-footer-item>
         </li>
       </ul>
@@ -70,6 +43,48 @@ export default {
     QIconInfo,
     QIconBase,
     QIconHeart
+  },
+  data() {
+    return {
+      items: [
+        {
+          modifier: 'large',
+          title: '0800 123 2222',
+          description: 'Seg - Sex 8h-22h',
+          shortDescription: 'Segunda a sexta de 8h às 22h',
+          icon: QIconWhatsApp
+        },
+        {
+          modifier: 'small',
+          title: 'Chat ao vivo',
+          description: 'Seg - Sex 8h-22h',
+          shortTitle: 'Chat',
+          icon: QIconComments
+        },
+        {
+          modifier: 'small',
+          title: 'Mande um e-mail',
+          description: 'Respondemos rapidinho',
+          shortTitle: 'E-mail',
+          icon: QIconEnvelope
+        },
+        {
+          modifier: 'small',
+          title: 'Central de ajuda',
+          description: 'Encontre todas as respostas',
+          shortTitle: 'Ajuda',
+          icon: QIconInfo
+        }
+      ]
+    }
+  },
+  methods: {
+    getItemClass(item) {
+      const className = 'q-footer__item'
+      const modifier = `${className}--${item.modifier}`
+
+      return [className, modifier]
+    }
   }
 }
 </script>
