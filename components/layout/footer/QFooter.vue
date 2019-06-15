@@ -1,48 +1,23 @@
 <template>
   <footer class="q-footer">
-    <div class="q-footer__container">
-      <ul class="q-footer__list">
-        <li v-for="item in items" :key="item.title" :class="getItemClass(item)">
-          <q-footer-item
-            :title="item.title"
-            :description="item.description"
-            :short-description="item.shortDescription"
-            :modifier="item.modifier"
-          >
-            <component :is="item.icon" />
-          </q-footer-item>
-        </li>
-      </ul>
-      <section class="q-footer__copyright">
-        Feito com
-        <q-icon-base height="16px" width="26px">
-          <q-icon-heart :animated="true" />
-        </q-icon-base>
-        pela Quero Educação
-      </section>
-    </div>
+    <q-footer-group-items :items="items" />
+    <q-copyright />
   </footer>
 </template>
 
 <script>
-import QFooterItem from './QFooterItem'
+import QFooterGroupItems from './QFooterGroupItems'
+import QCopyright from './QCopyright'
 
 import QIconInfo from '~/components/q-icons/QIconInfo'
 import QIconWhatsApp from '~/components/q-icons/QIconWhatsApp'
 import QIconComments from '~/components/q-icons/QIconComments'
 import QIconEnvelope from '~/components/q-icons/QIconEnvelope'
-import QIconHeart from '~/components/q-icons/QIconHeart'
-import QIconBase from '~/components/q-icons/QIconBase'
 
 export default {
   components: {
-    QFooterItem,
-    QIconWhatsApp,
-    QIconComments,
-    QIconEnvelope,
-    QIconInfo,
-    QIconBase,
-    QIconHeart
+    QFooterGroupItems,
+    QCopyright
   },
   data() {
     return {
@@ -77,14 +52,6 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-    getItemClass(item) {
-      const className = 'q-footer__item'
-      const modifier = `${className}--${item.modifier}`
-
-      return [className, modifier]
-    }
   }
 }
 </script>
@@ -92,52 +59,5 @@ export default {
 <style lang="scss">
 .q-footer {
   background-color: $primary-color;
-}
-
-.q-footer__container {
-  @extend %container;
-}
-
-.q-footer__list {
-  @extend %row;
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @include media-breakpoint-up(sm) {
-    flex-wrap: nowrap;
-  }
-}
-
-.q-footer__item {
-  background-color: $primary-color;
-  flex: 1 1 0;
-}
-
-.q-footer__item--large {
-  @include media-breakpoint-down(sm) {
-    flex-basis: 100%;
-  }
-}
-
-.q-footer__item--small {
-  @include media-breakpoint-down(sm) {
-    margin-right: $space-xxs;
-    margin-top: $space-xxs;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
-.q-footer__copyright {
-  padding: $space-st 0;
-  text-align: center;
-  color: $neutral-color-white;
-  font-size: $font-size-small;
 }
 </style>

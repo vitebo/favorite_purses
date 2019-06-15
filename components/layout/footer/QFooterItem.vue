@@ -68,9 +68,14 @@ export default {
   color: $neutral-color-white;
   display: flex;
   flex-direction: column;
-  padding: $space-m $space-st;
+  padding: $space-l $container-gap;
   text-decoration: none;
   text-align: center;
+
+  @include media-breakpoint-down(sm) {
+    padding-left: $space-m;
+    padding-right: $space-m;
+  }
 
   @include media-breakpoint-up(md) {
     align-items: center;
