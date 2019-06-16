@@ -1,7 +1,9 @@
 <template>
-  <div :class="overlayClass" @click="onClick">
-    <slot />
-  </div>
+  <transition name="q-overlay-">
+    <div v-if="showOverlay" class="q-overlay" @click="clickOnOverlay">
+      <slot />
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -19,18 +21,8 @@ export default {
       }
     }
   },
-  computed: {
-    overlayClass() {
-      const className = 'q-overlay'
-
-      const modifier = {}
-      modifier[`${className}--show`] = this.showOverlay
-
-      return [className, modifier]
-    }
-  },
   methods: {
-    onClick() {
+    clickOnOverlay() {
       this.$emit('clickOnOverlay')
     }
   }
@@ -39,10 +31,13 @@ export default {
 
 <style lang="scss">
 .q-overlay {
-  opacity: 0;
+  background-color: $overlay-color;
   position: absolute;
   left: 0;
   top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
   transition: opacity $transition;
 
   @include media-breakpoint-down(sm) {
@@ -50,12 +45,9 @@ export default {
   }
 }
 
-.q-overlay--show {
-  background-color: $overlay-color;
-  height: 100%;
-  opacity: 1;
-  width: 100%;
-  z-index: 1;
+.q-overlay--enter,
+.q-overlay--leave-to {
+  opacity: 0;
 }
 
 .q-overlay__body {
