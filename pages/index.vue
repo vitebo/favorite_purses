@@ -19,6 +19,8 @@
     </header>
     <main class="page__main">
       <q-add-offer-card />
+      <q-base-modal :show-modal="showModal" @clickToCloseModal="close" />
+      <button @click="change">change</button>
     </main>
   </div>
 </template>
@@ -26,13 +28,16 @@
 <script>
 import QBreadcrumb from '~/components/utils/QBreadcrumb'
 import QToggleButtons from '~/components/utils/QToggleButtons'
+import QBaseModal from '~/components/utils/QBaseModal'
+
 import QAddOfferCard from '~/page-components/QAddOfferCard'
 
 export default {
   components: {
     QBreadcrumb,
     QToggleButtons,
-    QAddOfferCard
+    QAddOfferCard,
+    QBaseModal
   },
   data() {
     return {
@@ -45,7 +50,16 @@ export default {
         { text: 'Todos os semestres', value: 'ALL', default: true },
         { text: '2º semestre 2019', value: 'SECOND_2019', default: false },
         { text: '1º semestre 2020', value: 'FIRST_2020', default: false }
-      ]
+      ],
+      showModal: false
+    }
+  },
+  methods: {
+    change() {
+      this.showModal = !this.showModal
+    },
+    close() {
+      this.showModal = false
     }
   }
 }
