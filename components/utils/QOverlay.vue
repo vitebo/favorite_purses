@@ -56,16 +56,17 @@ export default {
   height: 100%;
   width: 100%;
   z-index: 1;
-
-  @include media-breakpoint-down(sm) {
-    top: $header-height;
-  }
 }
 
 .q-overlay__slot {
   display: flex;
   align-items: center;
   height: 100%;
+
+  @include media-breakpoint-down(sm) {
+    align-items: flex-start;
+    padding-top: $space-j;
+  }
 }
 
 .q-overlay__body {

@@ -47,9 +47,6 @@ export default {
 .q-base-modal {
 }
 
-.q-base-modal__container {
-}
-
 .q-base-modal__card {
   @extend %container;
   width: 700px;
