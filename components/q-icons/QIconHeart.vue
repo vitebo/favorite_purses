@@ -31,9 +31,9 @@ export default {
 
 <style lang="scss">
 .q-icon-heart--animated {
-  animation-name: heartbeat;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
+  animation-name: heartbeat;
   transform-origin: center;
 }
 
@@ -41,9 +41,11 @@ export default {
   from {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   to {
     transform: scale(1);
   }

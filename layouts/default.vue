@@ -56,7 +56,7 @@ textarea {
 .l-default {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
+  justify-content: space-between;
 }
 </style>

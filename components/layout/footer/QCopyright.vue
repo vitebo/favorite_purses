@@ -22,9 +22,9 @@ export default {
 
 <style lang="scss">
 .q-copyright {
-  padding: $space-l 0;
-  text-align: center;
   color: $neutral-color-white;
   font-size: $font-size-small;
+  padding: $space-l 0;
+  text-align: center;
 }
 </style>

@@ -83,7 +83,7 @@ export default {
 }
 
 .page__main {
-  margin-top: $space-st;
   margin-bottom: $space-st;
+  margin-top: $space-st;
 }
 </style>

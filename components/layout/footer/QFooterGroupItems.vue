@@ -55,11 +55,12 @@ export default {
 
 .q-footer-group-items__list {
   @extend %row;
-  margin-top: 0;
-  margin-bottom: 0;
+
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
   padding-left: 0;
 
   @include media-breakpoint-up(sm) {
@@ -74,6 +75,7 @@ export default {
 
 .q-footer-group-items__item--large {
   @include media-breakpoint-down(sm) {
+    display: flex;
     flex-basis: 100%;
   }
 }

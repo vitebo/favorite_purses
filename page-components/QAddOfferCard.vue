@@ -30,8 +30,8 @@ export default {
 
 <style lang="scss">
 .q-add-offer {
-  display: inline-block;
   color: $neutral-color-black;
+  display: inline-block;
   text-decoration: none;
   transition: width $transition;
   width: 100%;
@@ -43,10 +43,10 @@ export default {
 
 .q-add-offer__card {
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 400px;
   display: flex;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
 }
 
 .q-add-offer__icon {
@@ -55,8 +55,8 @@ export default {
 }
 
 .q-add-offer__title {
-  margin: 0;
   font-size: rem(20);
+  margin: 0;
 }
 
 .q-add-offer__text {
