@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-$modal-animation-time: 400ms;
-$overlay-animation-time: 400ms;
-
 .q-base-modal--opening {
   animation: open-modal $modal-animation-time;
   animation-delay: $modal-animation-time;
@@ -79,14 +76,19 @@ $overlay-animation-time: 400ms;
   $card-width: 700px;
 
   @extend %container;
-  left: calc(50% - #{$card-width / 2});
+  left: 0;
   margin-right: 0 auto;
-  min-height: 80%;
+  min-height: 700px;
   position: absolute;
   transition: transform $transition;
   top: $space-j;
-  width: $card-width;
+  width: 100%;
   z-index: 2;
+
+  @include media-breakpoint-up(sm) {
+    left: calc(50% - #{$card-width / 2});
+    width: $card-width;
+  }
 }
 
 .q-base-modal__close {
