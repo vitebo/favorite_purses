@@ -3,8 +3,6 @@
     <div>
       <q-header />
       <q-menu-bar />
-    </div>
-    <div>
       <nuxt />
     </div>
     <q-footer />
