@@ -1,18 +1,23 @@
 <template>
-  <q-overlay
-    class="q-base-modal"
-    :show-overlay="showModal"
-    @clickOnOverlay="close"
-  >
-    <q-card class="q-base-modal__card">
-      <button class="q-base-modal__close" @click="close">
-        <q-icon-base height="32px" width="32px" icon-name="fechar">
-          <q-icon-times />
-        </q-icon-base>
-      </button>
-      <slot />
-    </q-card>
-  </q-overlay>
+  <div class="q-base-modal">
+    <q-overlay :show-overlay="showOverlay" @clickOnOverlay="close" />
+
+    <transition
+      enter-active-class="q-base-modal--opening"
+      leave-active-class="q-base-modal--closing"
+      @before-enter="callOverlary"
+      @after-leave="closeOverlay"
+    >
+      <q-card v-if="showModal" class="q-base-modal__card">
+        <button class="q-base-modal__close" @click="close">
+          <q-icon-base height="32px" width="32px" icon-name="fechar">
+            <q-icon-times />
+          </q-icon-base>
+        </button>
+        <slot />
+      </q-card>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -35,24 +40,53 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      showOverlay: this.showModal
+    }
+  },
   methods: {
     close() {
       this.$emit('clickToCloseModal')
+    },
+    callOverlary() {
+      this.showOverlay = true
+    },
+    closeOverlay() {
+      this.showOverlay = false
     }
   }
 }
 </script>
 
 <style lang="scss">
-.q-base-modal {
+$modal-animation-time: 400ms;
+$overlay-animation-time: 400ms;
+
+.q-base-modal--opening {
+  animation: open-modal $modal-animation-time;
+  animation-delay: $modal-animation-time;
+  animation-fill-mode: forwards;
+  transform: translateY(100vh);
+}
+
+.q-base-modal--closing {
+  animation: open-modal $modal-animation-time reverse;
+  animation-delay: $overlay-animation-time;
 }
 
 .q-base-modal__card {
+  $card-width: 700px;
+
   @extend %container;
-  width: 700px;
+  left: calc(50% - #{$card-width / 2});
+  margin-right: 0 auto;
   min-height: 80%;
-  position: relative;
+  position: absolute;
   transition: transform $transition;
+  top: $space-j;
+  width: $card-width;
+  z-index: 2;
 }
 
 .q-base-modal__close {
@@ -69,6 +103,16 @@ export default {
   &:hover {
     transform: scale(1.1);
     cursor: pointer;
+  }
+}
+
+@keyframes open-modal {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(0);
   }
 }
 </style>

@@ -1,15 +1,11 @@
 <template>
   <transition
-    enter-active-class="q-overlay--opening-animation"
-    leave-active-class="q-overlay--closing-animation"
+    enter-active-class="q-overlay--opening"
+    leave-active-class="q-overlay--closing"
     @before-enter="removeBodyScroll"
     @after-leave="addBodyScroll"
   >
-    <div v-if="showOverlay" class="q-overlay" @click="clickOnOverlay">
-      <div class="q-overlay__slot">
-        <slot />
-      </div>
-    </div>
+    <div v-if="showOverlay" class="q-overlay" @click="clickOnOverlay"></div>
   </transition>
 </template>
 
@@ -48,6 +44,8 @@ export default {
 </script>
 
 <style lang="scss">
+$overlay-animation-time: 400ms;
+
 .q-overlay {
   background-color: $overlay-color;
   position: absolute;
@@ -58,58 +56,25 @@ export default {
   z-index: 1;
 }
 
-.q-overlay__slot {
-  display: flex;
-  align-items: center;
-  height: 100%;
+.q-overlay--opening {
+  animation: open-overlay $overlay-animation-time;
+}
 
-  @include media-breakpoint-down(sm) {
-    align-items: flex-start;
-    padding-top: $space-j;
-  }
+.q-overlay--closing {
+  animation: open-overlay $overlay-animation-time reverse;
 }
 
 .q-overlay__body {
   overflow-y: hidden;
 }
 
-.q-overlay--opening-animation {
-  animation: open-overlay 800ms;
-
-  & > .q-overlay__slot {
-    animation: open-overlay-slot 800ms;
-  }
-}
-
-.q-overlay--closing-animation {
-  animation: open-overlay 800ms reverse;
-
-  & > .q-overlay__slot {
-    animation: open-overlay-slot 800ms reverse;
-  }
-}
-
 @keyframes open-overlay {
-  0% {
+  from {
     opacity: 0;
   }
 
-  50% {
+  to {
     opacity: 1;
-  }
-}
-
-@keyframes open-overlay-slot {
-  0% {
-    transform: translateY(100vh);
-  }
-
-  50% {
-    transform: translateY(100vh);
-  }
-
-  100% {
-    transform: translateY(0);
   }
 }
 </style>
