@@ -18,9 +18,8 @@
       </div>
     </header>
     <main class="page__main">
-      <q-add-offer-card />
+      <q-add-offer-card @addOffer="openModal" />
       <q-base-modal :show-modal="showModal" @clickToCloseModal="close" />
-      <button @click="change">change</button>
     </main>
   </div>
 </template>
@@ -55,7 +54,7 @@ export default {
     }
   },
   methods: {
-    change() {
+    openModal() {
       this.showModal = !this.showModal
     },
     close() {

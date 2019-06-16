@@ -7,7 +7,7 @@
     role="presentation"
     class="icon-base"
   >
-    <title :id="iconName" lang="pt-br">{{ iconName }} icon</title>
+    <title :id="iconName" lang="pt-br">{{ iconName }}</title>
     <g :fill="iconColor">
       <slot />
     </g>

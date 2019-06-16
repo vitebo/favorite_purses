@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="q-add-offer">
+  <a href="#" class="q-add-offer" @click="addOffer">
     <q-card :hover-animation="true" class="q-add-offer__card">
       <div>
         <q-icon-base height="64px" width="64px" class="q-add-offer__icon">
@@ -24,6 +24,11 @@ export default {
     QCard,
     QIconPlusCircle,
     QIconBase
+  },
+  methods: {
+    addOffer() {
+      this.$emit('addOffer')
+    }
   }
 }
 </script>
