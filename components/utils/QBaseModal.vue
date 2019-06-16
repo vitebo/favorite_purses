@@ -4,16 +4,14 @@
     :show-overlay="showModal"
     @clickOnOverlay="close"
   >
-    <section class="q-base-modal__container">
-      <q-card class="q-base-modal__card">
-        <button class="q-base-modal__close" @click="close">
-          <q-icon-base height="32px" width="32px" icon-name="fechar">
-            <q-icon-times />
-          </q-icon-base>
-        </button>
-        <slot />
-      </q-card>
-    </section>
+    <q-card class="q-base-modal__card">
+      <button class="q-base-modal__close" @click="close">
+        <q-icon-base height="32px" width="32px" icon-name="fechar">
+          <q-icon-times />
+        </q-icon-base>
+      </button>
+      <slot />
+    </q-card>
   </q-overlay>
 </template>
 
@@ -50,9 +48,6 @@ export default {
 }
 
 .q-base-modal__container {
-  display: flex;
-  align-items: center;
-  height: 100%;
 }
 
 .q-base-modal__card {
@@ -60,6 +55,7 @@ export default {
   width: 700px;
   min-height: 80%;
   position: relative;
+  transition: transform $transition;
 }
 
 .q-base-modal__close {
