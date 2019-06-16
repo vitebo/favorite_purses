@@ -44,8 +44,6 @@ export default {
 </script>
 
 <style lang="scss">
-$overlay-animation-time: 400ms;
-
 .q-overlay {
   background-color: $overlay-color;
   position: absolute;
