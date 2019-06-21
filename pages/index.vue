@@ -19,7 +19,9 @@
     </header>
     <main class="page__main">
       <q-add-offer-card @addOffer="openModal" />
-      <q-base-modal :show-modal="showModal" @clickToCloseModal="close" />
+      <q-base-modal :show-modal="showModal" @clickToCloseModal="close">
+        <q-add-offer-modal />
+      </q-base-modal>
     </main>
   </div>
 </template>
@@ -30,13 +32,15 @@ import QToggleButtons from '~/components/utils/QToggleButtons'
 import QBaseModal from '~/components/utils/QBaseModal'
 
 import QAddOfferCard from '~/page-components/QAddOfferCard'
+import QAddOfferModal from '~/page-components/QAddOfferModal'
 
 export default {
   components: {
     QBreadcrumb,
     QToggleButtons,
     QAddOfferCard,
-    QBaseModal
+    QBaseModal,
+    QAddOfferModal
   },
   data() {
     return {

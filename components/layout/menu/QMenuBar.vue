@@ -59,11 +59,13 @@ export default {
   background: $primary-color;
   box-shadow: $low-box-shadow;
   color: $neutral-color-white;
-  height: 40px;
+  height: $space-xl;
 }
 
 .q-menu-bar__container {
   @extend %container;
+
+  height: 100%;
 }
 
 .q-menu-bar__row {
@@ -71,6 +73,7 @@ export default {
 
   align-items: center;
   display: flex;
+  height: 100%;
 
   @include media-breakpoint-down(sm) {
     justify-content: space-between;
@@ -79,7 +82,7 @@ export default {
 
 .q-menu-bar__title {
   margin-right: $space-st;
-  padding: $container-gap;
+  padding: 0 $container-gap;
 }
 
 .q-menu-bar__target {
@@ -87,7 +90,7 @@ export default {
   font-size: $font-size-normal;
   font-weight: $font-weight-bold;
   line-height: 1.5;
-  padding: $container-gap;
+  padding: 0 $container-gap;
 }
 
 .q-menu-bar__list {
