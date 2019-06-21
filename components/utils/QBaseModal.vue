@@ -63,7 +63,6 @@ export default {
 .q-base-modal__card {
   $card-width: 700px;
 
-  @extend %container;
   left: 0;
   margin-right: 0 auto;
   min-height: 700px;

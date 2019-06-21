@@ -5,7 +5,7 @@
       Filtre e adicione as bolsas de seu interesse.
     </p>
 
-    <q-add-offer-form />
+    <q-add-offer-form class="q-add-offer-modal__form" />
   </div>
 </template>
 
@@ -27,5 +27,9 @@ export default {
 
 .q-add-offer-modal__description {
   margin: 0;
+}
+
+.q-add-offer-modal__form {
+  margin-top: $space-m;
 }
 </style>

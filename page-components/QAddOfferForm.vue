@@ -73,10 +73,11 @@ export default {
 
 <style lang="scss">
 .q-add-offer-form {
-  @extend %row;
   display: flex;
   flex-wrap: wrap;
-  margin-top: $space-st;
+  position: relative;
+  margin-left: $space-s * -1;
+  margin-right: $space-s * -1;
 }
 
 .q-add-offer-form__legend {
@@ -90,10 +91,8 @@ export default {
 
 .q-add-offer-form__group {
   flex: 1 0 50%;
-  padding: $container-gap;
-  padding-top: 0;
-  padding-bottom: $space-st;
-  min-width: 350px;
+  min-width: 300px;
+  padding: $space-m $space-s;
 }
 
 .q-add-offer-form__kind-options {
