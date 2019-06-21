@@ -50,13 +50,19 @@ export default {
 </script>
 
 <style lang="scss">
+.q-input-range {
+  display: block;
+}
+
 .q-input-range__field {
   width: 100%;
+  display: block;
   appearance: none;
   height: $space-xs;
   background: $primary-color;
   outline: none;
   border-radius: $space-xxs;
+  margin-top: $space-st;
 }
 
 .q-input-range__field::-webkit-slider-thumb {
