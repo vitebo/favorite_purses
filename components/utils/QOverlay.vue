@@ -5,7 +5,7 @@
     @before-enter="removeBodyScroll"
     @after-leave="addBodyScroll"
   >
-    <div v-if="showOverlay" class="q-overlay" @click="clickOnOverlay"></div>
+    <div v-if="showOverlay" :class="overlayClass" @click="clickOnOverlay"></div>
   </transition>
 </template>
 
@@ -13,6 +13,10 @@
 export default {
   props: {
     showOverlay: {
+      type: Boolean,
+      default: false
+    },
+    withoutHeader: {
       type: Boolean,
       default: false
     }
@@ -27,6 +31,15 @@ export default {
   data() {
     return {
       hideBodyScroll: this.showOverlay
+    }
+  },
+  computed: {
+    overlayClass() {
+      const className = 'q-overlay'
+      const modifier = {}
+      modifier[`${className}--without-header`] = this.withoutHeader
+
+      return [className, modifier]
     }
   },
   methods: {
@@ -60,6 +73,11 @@ export default {
 
 .q-overlay--closing {
   animation: open-overlay $overlay-animation-time reverse;
+}
+
+.q-overlay--without-header {
+  height: calc(100vh - #{$header-height});
+  top: $header-height;
 }
 
 .q-overlay__body {

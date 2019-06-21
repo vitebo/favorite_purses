@@ -3,6 +3,7 @@
     <q-overlay
       v-if="overlay"
       :show-overlay="isTheVisibleMenu"
+      :without-header="true"
       @clickOnOverlay="closeMenu"
     />
     <button class="q-base-menu__target" @click="toggleMenu">
