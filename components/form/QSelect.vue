@@ -1,13 +1,16 @@
 <template>
-  <select :name="name" class="q-select">
-    <option
-      v-for="option in options"
-      :key="option.value"
-      :value="options.value"
-    >
-      {{ option.text }}
-    </option>
-  </select>
+  <label class="q-select">
+    {{ label }}
+    <select :name="name" class="q-select__field">
+      <option
+        v-for="option in options"
+        :key="option.value"
+        :value="options.value"
+      >
+        {{ option.text }}
+      </option>
+    </select>
+  </label>
 </template>
 
 <script>
@@ -20,13 +23,17 @@ export default {
     options: {
       type: () => Array,
       default: []
+    },
+    label: {
+      type: String,
+      default: ''
     }
   }
 }
 </script>
 
 <style lang="scss">
-.q-select {
+.q-select__field {
   background-color: $neutral-color-white;
   border: 1px solid $neutral-color-gray-light;
   border-radius: 4px;

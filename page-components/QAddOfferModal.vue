@@ -3,19 +3,25 @@
     <h3>Adicionar bolsa</h3>
     <p>Filtre e adicione as bolsas de seu interesse.</p>
 
-    <label>
-      Selecione sua cidade
-      <q-select name="city-options" :options="cityOptions" />
-    </label>
+    <q-select
+      label="Selecione sua cidade"
+      name="city-options"
+      :options="cityOptions"
+    />
 
-    <label>
-      Selecione o curso de sua preferência
-      <q-select name="city-options" :options="cityOptions" />
-    </label>
+    <q-select
+      label="Selecione o curso de sua preferência"
+      name="city-options"
+      :options="cityOptions"
+    />
 
     <h4>Como você pretender estudar?</h4>
 
-    <q-checkbox name="presential" text="presencial" />
+    <q-checkbox name="kind" text="presencial" value="presential" />
+
+    <q-checkbox name="kind" text="A distância" value="ead" />
+
+    <h4>Até quanto pode pagar?</h4>
   </div>
 </template>
 

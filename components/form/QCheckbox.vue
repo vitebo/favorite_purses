@@ -4,6 +4,7 @@
       v-model="checked"
       type="checkbox"
       :name="name"
+      :value="value"
       class="q-checkbox__input"
     />
 
@@ -34,6 +35,10 @@ export default {
       default: ''
     },
     text: {
+      type: String,
+      default: ''
+    },
+    value: {
       type: String,
       default: ''
     }
