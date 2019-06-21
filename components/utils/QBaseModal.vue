@@ -3,8 +3,8 @@
     <q-overlay :show-overlay="showOverlay" @clickOnOverlay="close" />
 
     <transition
-      enter-active-class="q-base-modal--opening"
-      leave-active-class="q-base-modal--closing"
+      enter-active-class="q-base-modal__card--opening"
+      leave-active-class="q-base-modal__card--closing"
       @before-enter="callOverlary"
       @after-leave="closeOverlay"
     >
@@ -60,18 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-.q-base-modal--opening {
-  animation: open-modal $modal-animation-time;
-  animation-delay: $modal-animation-time;
-  animation-fill-mode: forwards;
-  transform: translateY(100vh);
-}
-
-.q-base-modal--closing {
-  animation: open-modal $modal-animation-time reverse;
-  animation-delay: $overlay-animation-time;
-}
-
 .q-base-modal__card {
   $card-width: 700px;
 
@@ -89,6 +77,18 @@ export default {
     left: calc(50% - #{$card-width / 2});
     width: $card-width;
   }
+}
+
+.q-base-modal__card--opening {
+  animation: open-modal $modal-animation-time;
+  animation-delay: $modal-animation-time;
+  animation-fill-mode: forwards;
+  transform: translateY(100vh);
+}
+
+.q-base-modal__card--closing {
+  animation: open-modal $modal-animation-time reverse;
+  animation-delay: $overlay-animation-time;
 }
 
 .q-base-modal__close {
