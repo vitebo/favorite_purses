@@ -22,17 +22,27 @@
     <q-checkbox name="kind" text="A distância" value="ead" />
 
     <h4>Até quanto pode pagar?</h4>
+
+    <q-input-range
+      name="until-when-can-you-pay"
+      label="R$"
+      :min="0"
+      :max="10000"
+      value="10000"
+    />
   </div>
 </template>
 
 <script>
 import QSelect from '~/components/form/QSelect'
 import QCheckbox from '~/components/form/QCheckbox'
+import QInputRange from '~/components/form/QInputRange'
 
 export default {
   components: {
     QSelect,
-    QCheckbox
+    QCheckbox,
+    QInputRange
   },
   data() {
     return {
