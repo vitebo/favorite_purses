@@ -33,6 +33,14 @@ export default {
 </script>
 
 <style lang="scss">
+.q-select {
+  color: $neutral-color-black;
+  font-size: rem(13);
+  font-weight: $font-weight-bold;
+  line-height: rem(20);
+  text-transform: uppercase;
+}
+
 .q-select__field {
   background-color: $neutral-color-white;
   border: 1px solid $neutral-color-gray-light;
