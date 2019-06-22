@@ -12,6 +12,15 @@
       :courses="courses"
     />
     <q-list-offers :offers="offers" />
+
+    <footer class="q-add-offer-modal__footer">
+      <q-button class="q-add-offer-modal__button" variant="secondary">
+        Cancelar
+      </q-button>
+      <q-button class="q-add-offer-modal__button" disabled="true">
+        Adicionar bolsa(s)
+      </q-button>
+    </footer>
   </div>
 </template>
 
@@ -19,10 +28,13 @@
 import QAddOfferForm from '~/page-components/QAddOfferForm'
 import QListOffers from '~/page-components/QListOffers'
 
+import QButton from '~/components/form/QButton'
+
 export default {
   components: {
     QAddOfferForm,
-    QListOffers
+    QListOffers,
+    QButton
   },
   data() {
     return {
@@ -57,5 +69,15 @@ export default {
 
 .q-add-offer-modal__form {
   margin-top: $space-m;
+}
+
+.q-add-offer-modal__footer {
+  margin-top: $space-st;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.q-add-offer-modal__button {
+  margin-left: $space-m;
 }
 </style>
