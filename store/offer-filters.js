@@ -1,7 +1,7 @@
 export const state = () => ({
   city: null,
   course: null,
-  kinds: ['presencial', 'EaD'],
+  kinds: [],
   maxPrice: 10000
 })
 

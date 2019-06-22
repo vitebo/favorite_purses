@@ -26,12 +26,14 @@
           name="kind"
           text="presencial"
           value="presential"
+          @change-state="updateKind"
         />
         <q-checkbox
           class="q-add-offer-form__kind-check"
           name="kind"
           text="A distância"
-          value="ead"
+          value="EaD"
+          @change-state="updateKind"
         />
       </div>
     </div>
@@ -84,6 +86,10 @@ export default {
     },
     setCourse(course) {
       this.$store.commit('offer-filters/setCourse', course)
+    },
+    updateKind({ value, checked }) {
+      const mutation = checked ? 'addKind' : 'removeKind'
+      this.$store.commit(`offer-filters/${mutation}`, value)
     }
   }
 }

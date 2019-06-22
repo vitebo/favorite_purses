@@ -6,6 +6,7 @@
       :name="name"
       :value="value"
       class="q-checkbox__input"
+      @change="onChange"
     />
 
     <transition
@@ -56,6 +57,11 @@ export default {
       modifier[`${className}--checked`] = this.checked
 
       return [className, modifier]
+    }
+  },
+  methods: {
+    onChange() {
+      this.$emit('change-state', { value: this.value, checked: this.checked })
     }
   }
 }
