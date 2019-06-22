@@ -1,10 +1,15 @@
 <template>
   <section class="q-list-offers">
-    <header>
+    <header class="q-list-offers__header">
       <strong>Resultado:</strong>
-      <p>
+      <p class="q-list-offers__order-by">
         Ordenar por
-        <a href="#">Nome da faculdade</a>
+        <a class="q-list-offers__university-name" href="#">
+          Nome da faculdade
+          <q-icon-base height="12px" width="12px">
+            <q-icon-chevron direction="bottom" />
+          </q-icon-base>
+        </a>
       </p>
     </header>
     <ul class="q-list-offers__list">
@@ -18,9 +23,14 @@
 <script>
 import QOfferItem from '~/page-components/QOfferItem'
 
+import QIconChevron from '~/components/q-icons/QIconChevron'
+import QIconBase from '~/components/q-icons/QIconBase'
+
 export default {
   components: {
-    QOfferItem
+    QOfferItem,
+    QIconBase,
+    QIconChevron
   },
   props: {
     offers: {
@@ -32,6 +42,31 @@ export default {
 </script>
 
 <style lang="scss">
+.q-list-offers__header {
+  align-items: center;
+  border-bottom: 1px solid $neutral-color-gray-lighter;
+  display: flex;
+  justify-content: space-between;
+  font-weight: $font-weight-bold;
+  margin: 0 ($card-padding * -1);
+  padding: 0 $card-padding;
+}
+
+.q-list-offers__order-by {
+  margin: 0;
+  padding: $space-m 0;
+}
+
+.q-list-offers__university-name {
+  color: $primary-color-dark;
+  transition: color $transition;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
 .q-list-offers__list {
   list-style: none;
   margin: 0 ($card-padding * -1);

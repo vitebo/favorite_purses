@@ -13,13 +13,13 @@
       <div class="q-offer-item__price-info">
         <p class="q-offer-item__discount-percentage">
           Bolsa de
-          <strong class="q-offer-item__price"
-            >{{ offer.discount_percentage }}%</strong
-          >
+          <strong class="q-offer-item__price">
+            {{ offer.discount_percentage }}%
+          </strong>
         </p>
-        <strong class="q-offer-item__price"
-          >R$ {{ offer.price_with_discount }}/mês</strong
-        >
+        <strong class="q-offer-item__price">
+          R$ {{ offer.price_with_discount }}/mês
+        </strong>
       </div>
     </q-checkbox>
   </article>
@@ -45,6 +45,7 @@ export default {
 .q-offer-item {
   border-bottom: 1px solid $neutral-color-gray-lighter;
   padding: 0 $card-padding;
+  transition: background-color $transition;
 
   &:hover {
     background-color: $neutral-color-gray-lightest;
