@@ -17,6 +17,7 @@
       </q-icon-base>
     </transition>
     {{ text }}
+    <slot />
   </label>
 </template>
 

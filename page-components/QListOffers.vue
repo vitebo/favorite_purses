@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="q-list-offers">
     <header>
       <strong>Resultado:</strong>
       <p>
@@ -7,7 +7,7 @@
         <a href="#">Nome da faculdade</a>
       </p>
     </header>
-    <ul>
+    <ul class="q-list-offers__list">
       <li v-for="offer in offers" :key="offer.start_date">
         <q-offer-item :offer="offer" />
       </li>
@@ -31,4 +31,9 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.q-list-offers__list {
+  list-style: none;
+  padding-left: 0;
+}
+</style>
