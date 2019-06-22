@@ -46,6 +46,7 @@
         :min="Number(0)"
         :max="Number(10000)"
         :value="Number(10000)"
+        @change-value="setMaxPrice"
       />
     </div>
   </form>
@@ -90,6 +91,9 @@ export default {
     updateKind({ value, checked }) {
       const mutation = checked ? 'addKind' : 'removeKind'
       this.$store.commit(`offer-filters/${mutation}`, value)
+    },
+    setMaxPrice(price) {
+      this.$store.commit('offer-filters/setMaxPrice', price)
     }
   }
 }

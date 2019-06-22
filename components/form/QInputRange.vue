@@ -8,6 +8,7 @@
       :name="name"
       :min="min"
       :max="max"
+      @change="onChange"
     />
   </label>
 </template>
@@ -44,6 +45,11 @@ export default {
   computed: {
     labelMessage() {
       return `${this.label}${this.model}`
+    }
+  },
+  methods: {
+    onChange() {
+      this.$emit('change-value', this.model)
     }
   }
 }
