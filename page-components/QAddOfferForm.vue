@@ -39,9 +39,9 @@
       <q-input-range
         name="until-when-can-you-pay"
         label="R$"
-        :min="0"
-        :max="10000"
-        value="10000"
+        :min="Number(0)"
+        :max="Number(10000)"
+        :value="Number(10000)"
       />
     </div>
   </form>
@@ -70,13 +70,10 @@ export default {
   },
   computed: {
     cityOptions() {
-      return this.cities.map(city => ({ text: city, value: city }))
+      return this.cities.map(city => ({ text: city, value: city })) || []
     },
     courseOptions() {
-      return this.courses.map(course => ({
-        text: course.name,
-        value: course.name
-      }))
+      return this.courses.map(course => ({ text: course, value: course })) || []
     }
   }
 }

@@ -13,7 +13,7 @@
       </p>
     </header>
     <ul class="q-list-offers__list">
-      <li v-for="offer in offers" :key="offer.start_date">
+      <li v-for="offer in offersWithId" :key="offer.id">
         <q-offer-item :offer="offer" />
       </li>
     </ul>
@@ -37,11 +37,20 @@ export default {
       type: Array,
       default: () => []
     }
+  },
+  computed: {
+    offersWithId() {
+      return this.offers.map((offer, id) => ({ ...offer, id }))
+    }
   }
 }
 </script>
 
 <style lang="scss">
+.q-list-offers {
+  margin-top: $space-m;
+}
+
 .q-list-offers__header {
   align-items: center;
   border-bottom: 1px solid $neutral-color-gray-lighter;

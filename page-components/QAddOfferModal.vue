@@ -34,7 +34,7 @@ export default {
       return [...new Set(this.offers.map(offer => offer.campus.city))]
     },
     courses() {
-      return [...new Set(this.offers.map(offer => offer.course))]
+      return [...new Set(this.offers.map(offer => offer.course.name))]
     }
   },
   async mounted() {

@@ -21,8 +21,8 @@ export default {
       default: ''
     },
     options: {
-      type: () => Array,
-      default: []
+      type: Array,
+      default: () => [{ value: '', text: '' }]
     },
     label: {
       type: String,
