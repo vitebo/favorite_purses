@@ -5,16 +5,42 @@
       Filtre e adicione as bolsas de seu interesse.
     </p>
 
-    <q-add-offer-form class="q-add-offer-modal__form" />
+    <q-add-offer-form
+      class="q-add-offer-modal__form"
+      :cities="cities"
+      :courses="courses"
+    />
+
+    <q-list-offers :offers="offers" />
   </div>
 </template>
 
 <script>
 import QAddOfferForm from '~/page-components/QAddOfferForm'
+import QListOffers from '~/page-components/QListOffers'
 
 export default {
   components: {
-    QAddOfferForm
+    QAddOfferForm,
+    QListOffers
+  },
+  data() {
+    return {
+      offers: []
+    }
+  },
+  computed: {
+    cities() {
+      return [...new Set(this.offers.map(offer => offer.campus.city))]
+    },
+    courses() {
+      return [...new Set(this.offers.map(offer => offer.course))]
+    }
+  },
+  async mounted() {
+    this.offers = await this.$axios.$get(
+      'https://testapi.io/api/redealumni/scholarships'
+    )
   }
 }
 </script>

@@ -10,7 +10,7 @@
     <q-select
       label="Selecione o curso de sua preferência"
       name="city-options"
-      :options="cityOptions"
+      :options="courseOptions"
       class="q-add-offer-form__group"
     />
 
@@ -58,14 +58,25 @@ export default {
     QCheckbox,
     QInputRange
   },
-  data() {
-    return {
-      cityOptions: [
-        { text: 'São José dos Campos', value: 'sjc' },
-        { text: 'São Paulo', value: 'sp' },
-        { text: 'Guarulhos', value: 'guarulhos' },
-        { text: 'Campinas', value: 'caminas' }
-      ]
+  props: {
+    cities: {
+      type: Array,
+      default: () => []
+    },
+    courses: {
+      type: Array,
+      default: () => []
+    }
+  },
+  computed: {
+    cityOptions() {
+      return this.cities.map(city => ({ text: city, value: city }))
+    },
+    courseOptions() {
+      return this.courses.map(course => ({
+        text: course.name,
+        value: course.name
+      }))
     }
   }
 }
