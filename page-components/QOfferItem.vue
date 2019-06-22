@@ -66,13 +66,14 @@ export default {
 }
 
 .q-offer-item__figure {
-  flex: 0 1 120px;
+  flex: 0 0 120px;
   margin: 0;
   padding: 0 $space-m;
 }
 
 .q-offer-item__image {
-  width: 100%;
+  max-width: 100%;
+  max-height: 42px;
 }
 
 .q-offer-item__course-info {

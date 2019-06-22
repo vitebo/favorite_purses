@@ -80,7 +80,7 @@ export default {
   list-style: none;
   margin: 0 ($card-padding * -1);
   overflow-y: auto;
-  height: 400px;
+  height: 300px;
   padding-left: 0;
 }
 </style>
