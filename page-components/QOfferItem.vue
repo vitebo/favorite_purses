@@ -43,14 +43,19 @@ export default {
 
 <style lang="scss">
 .q-offer-item {
-  padding: $space-m 0;
   border-bottom: 1px solid $neutral-color-gray-lighter;
+  padding: 0 $card-padding;
+
+  &:hover {
+    background-color: $neutral-color-gray-lightest;
+  }
 }
 
 .q-offer-item__checkbox {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: $space-m 0;
 }
 
 .q-offer-item__info {

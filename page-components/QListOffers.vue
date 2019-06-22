@@ -34,6 +34,9 @@ export default {
 <style lang="scss">
 .q-list-offers__list {
   list-style: none;
+  margin: 0 ($card-padding * -1);
+  overflow-y: auto;
+  height: 400px;
   padding-left: 0;
 }
 </style>

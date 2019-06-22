@@ -29,7 +29,7 @@ export default {
 .q-card {
   background-color: $neutral-color-white;
   box-shadow: $low-box-shadow;
-  padding: $space-st;
+  padding: $card-padding;
 }
 
 .q-card--animated {

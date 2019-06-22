@@ -1,16 +1,16 @@
 <template>
   <div class="q-add-offer-modal">
-    <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
-    <p class="q-add-offer-modal__description">
-      Filtre e adicione as bolsas de seu interesse.
-    </p>
-
+    <header>
+      <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
+      <p class="q-add-offer-modal__description">
+        Filtre e adicione as bolsas de seu interesse.
+      </p>
+    </header>
     <q-add-offer-form
       class="q-add-offer-modal__form"
       :cities="cities"
       :courses="courses"
     />
-
     <q-list-offers :offers="offers" />
   </div>
 </template>

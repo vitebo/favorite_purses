@@ -65,7 +65,6 @@ export default {
 
   left: 0;
   margin-right: 0 auto;
-  min-height: 700px;
   position: absolute;
   transition: transform $transition;
   top: $space-j;
