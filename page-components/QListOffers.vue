@@ -13,7 +13,7 @@
       </p>
     </header>
     <ul class="q-list-offers__list">
-      <li v-for="offer in offersWithId" :key="offer.id">
+      <li v-for="offer in offers" :key="offer.id">
         <q-offer-item :offer="offer" />
       </li>
     </ul>
@@ -36,11 +36,6 @@ export default {
     offers: {
       type: Array,
       default: () => []
-    }
-  },
-  computed: {
-    offersWithId() {
-      return this.offers.map((offer, id) => ({ ...offer, id }))
     }
   }
 }

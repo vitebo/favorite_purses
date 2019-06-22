@@ -1,11 +1,16 @@
 <template>
   <label class="q-select">
     {{ label }}
-    <select :name="name" class="q-select__field">
+    <select
+      v-model="selectedValue"
+      :name="name"
+      class="q-select__field"
+      @change="onChange"
+    >
       <option
         v-for="option in options"
         :key="option.value"
-        :value="options.value"
+        :value="option.value"
       >
         {{ option.text }}
       </option>
@@ -27,6 +32,16 @@ export default {
     label: {
       type: String,
       default: ''
+    }
+  },
+  data() {
+    return {
+      selectedValue: null
+    }
+  },
+  methods: {
+    onChange() {
+      this.$emit('change-value', this.selectedValue)
     }
   }
 }

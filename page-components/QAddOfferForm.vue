@@ -5,6 +5,7 @@
       name="city-options"
       :options="cityOptions"
       class="q-add-offer-form__group"
+      @change-value="setCity"
     />
 
     <q-select
@@ -12,6 +13,7 @@
       name="city-options"
       :options="courseOptions"
       class="q-add-offer-form__group"
+      @change-value="setCourse"
     />
 
     <div class="q-add-offer-form__group">
@@ -74,6 +76,14 @@ export default {
     },
     courseOptions() {
       return this.courses.map(course => ({ text: course, value: course })) || []
+    }
+  },
+  methods: {
+    setCity(city) {
+      this.$store.commit('offer-filters/setCity', city)
+    },
+    setCourse(course) {
+      this.$store.commit('offer-filters/setCourse', course)
     }
   }
 }

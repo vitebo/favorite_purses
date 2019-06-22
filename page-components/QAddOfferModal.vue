@@ -11,7 +11,7 @@
       :cities="cities"
       :courses="courses"
     />
-    <q-list-offers :offers="offers" />
+    <q-list-offers :offers="offersWithId" />
 
     <footer class="q-add-offer-modal__footer">
       <q-button class="q-add-offer-modal__button" variant="secondary">
@@ -47,6 +47,9 @@ export default {
     },
     courses() {
       return [...new Set(this.offers.map(offer => offer.course.name))]
+    },
+    offersWithId() {
+      return this.offers.map((offer, id) => ({ ...offer, id }))
     }
   },
   async mounted() {
