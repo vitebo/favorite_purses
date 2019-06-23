@@ -4,12 +4,12 @@
       <strong>Resultado:</strong>
       <p class="q-list-offers__order-by">
         Ordenar por
-        <a class="q-list-offers__university-name" href="#">
+        <button class="q-list-offers__university-name" @click="toggleOrder">
           Nome da faculdade
           <q-icon-base height="12px" width="12px">
-            <q-icon-chevron direction="bottom" />
+            <q-icon-chevron :direction="arrowDirection" />
           </q-icon-base>
-        </a>
+        </button>
       </p>
     </header>
     <ul class="q-list-offers__list">
@@ -49,6 +49,11 @@ export default {
       default: () => []
     }
   },
+  data() {
+    return {
+      orderBy: 'ASC'
+    }
+  },
   computed: {
     ...mapState('offer-filters', {
       city: state => state.city,
@@ -57,7 +62,7 @@ export default {
       maxPrice: state => state.maxPrice
     }),
     filteredOffers() {
-      return this.offers
+      const offers = this.offers
         .filter(offer => offer.campus.city === this.city || this.city === null)
         .filter(
           offer => offer.course.name === this.course || this.course === null
@@ -73,10 +78,20 @@ export default {
             ? 1
             : -1
         )
+
+      return this.orderBy === 'ASC' ? offers : offers.reverse()
+    },
+    arrowDirection() {
+      return this.orderBy === 'ASC' ? 'bottom' : 'top'
     }
   },
   beforeDestroy() {
     this.$store.dispatch('offer-filters/reset')
+  },
+  methods: {
+    toggleOrder() {
+      this.orderBy = this.orderBy === 'ASC' ? 'DESC' : 'ASC'
+    }
   }
 }
 </script>
@@ -102,12 +117,21 @@ export default {
 }
 
 .q-list-offers__university-name {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: rem(16);
+  font-weight: $font-weight-bold;
   color: $primary-color-dark;
   transition: color $transition;
   text-decoration: none;
 
   &:hover {
     color: $primary-color;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
