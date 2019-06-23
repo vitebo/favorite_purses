@@ -16,7 +16,10 @@
       <q-button class="q-add-offer-modal__button" variant="secondary">
         Cancelar
       </q-button>
-      <q-button class="q-add-offer-modal__button" disabled="true">
+      <q-button
+        class="q-add-offer-modal__button"
+        :disabled="!hasOffersSelected"
+      >
         Adicionar bolsa(s)
       </q-button>
     </footer>
@@ -28,6 +31,8 @@ import QAddOfferForm from '~/page-components/QAddOfferForm'
 import QListOffers from '~/page-components/QListOffers'
 
 import QButton from '~/components/form/QButton'
+
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -41,8 +46,14 @@ export default {
     }
   },
   computed: {
+    ...mapState('offer-filters', {
+      selectedOffers: state => state.selectedOffers
+    }),
     hasOffers() {
       return this.offers.length > 0
+    },
+    hasOffersSelected() {
+      return this.selectedOffers.length > 0
     }
   },
   async mounted() {

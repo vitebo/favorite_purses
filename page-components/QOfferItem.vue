@@ -1,6 +1,6 @@
 <template>
-  <article class="q-offer-item">
-    <q-checkbox class="q-offer-item__checkbox">
+  <div class="q-offer-item">
+    <q-checkbox class="q-offer-item__checkbox" @change-state="onChangeState">
       <div class="q-offer-item__info">
         <figure class="q-offer-item__figure">
           <img class="q-offer-item__image" :src="offer.university.logo_url" />
@@ -22,7 +22,7 @@
         </strong>
       </div>
     </q-checkbox>
-  </article>
+  </div>
 </template>
 
 <script>
@@ -36,6 +36,12 @@ export default {
     offer: {
       type: Object,
       default: () => ({})
+    }
+  },
+  methods: {
+    onChangeState({ checked }) {
+      const mutation = checked ? 'selectOffer' : 'deselectOffer'
+      this.$store.commit(`offer-filters/${mutation}`, this.offer)
     }
   }
 }
