@@ -60,6 +60,9 @@ export default {
         )
         .filter(offer => offer.price_with_discount <= this.maxPrice)
     }
+  },
+  beforeDestroy() {
+    this.$store.dispatch('offer-filters/reset')
   }
 }
 </script>

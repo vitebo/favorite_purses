@@ -1,8 +1,10 @@
+const DEFAULT_MAX_PRICE = 10000
+
 export const state = () => ({
   city: null,
   course: null,
   kinds: [],
-  maxPrice: 10000
+  maxPrice: DEFAULT_MAX_PRICE
 })
 
 export const mutations = {
@@ -28,5 +30,17 @@ export const mutations = {
   },
   setMaxPrice(state, price) {
     state.maxPrice = price
+  },
+  clearKinds(state) {
+    state.kinds = []
+  }
+}
+
+export const actions = {
+  reset({ commit }) {
+    commit('setCity', null)
+    commit('setCourse', null)
+    commit('setMaxPrice', DEFAULT_MAX_PRICE)
+    commit('clearKinds')
   }
 }
