@@ -82,20 +82,16 @@ export default {
     courseOptions() {
       return this.courses.map(course => ({ text: course, value: course })) || []
     },
-    prices() {
-      return this.offers.map(offer => Math.ceil(offer.price_with_discount))
+    priceWithDiscountOrdered() {
+      return this.offers
+        .map(offer => Math.ceil(offer.price_with_discount))
+        .sort((a, b) => (a > b ? 1 : -1))
     },
     lowestPriceWithDiscount() {
-      return this.prices.reduce(
-        (lowestPrice, price) => (price < lowestPrice ? price : lowestPrice),
-        Infinity
-      )
+      return this.priceWithDiscountOrdered.slice(0)[0]
     },
     biggestPriceWithDiscount() {
-      return this.prices.reduce(
-        (biggestPrice, price) => (price > biggestPrice ? price : biggestPrice),
-        0
-      )
+      return this.priceWithDiscountOrdered.slice(-1)[0]
     }
   },
   methods: {

@@ -59,6 +59,11 @@ export default {
             this.kinds.length === 0
         )
         .filter(offer => offer.price_with_discount <= this.maxPrice)
+        .sort((a, b) =>
+          a.university.name.toLowerCase() > b.university.name.toLowerCase()
+            ? 1
+            : -1
+        )
     }
   },
   beforeDestroy() {
