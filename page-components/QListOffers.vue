@@ -13,9 +13,18 @@
       </p>
     </header>
     <ul class="q-list-offers__list">
-      <li v-for="offer in filteredOffers" :key="offer.id">
-        <q-offer-item :offer="offer" />
-      </li>
+      <transition-group
+        enter-active-class="q-list-offers__item--opening"
+        leave-active-class="q-list-offers__item--closing"
+      >
+        <li
+          v-for="offer in filteredOffers"
+          :key="offer.id"
+          class="q-list-offers__item"
+        >
+          <q-offer-item :offer="offer" />
+        </li>
+      </transition-group>
     </ul>
   </section>
 </template>
@@ -108,5 +117,23 @@ export default {
   overflow-y: auto;
   height: 300px;
   padding-left: 0;
+}
+
+.q-list-offers__item--opening {
+  animation: open-offer-item 500ms;
+}
+
+.q-list-offers__item--closing {
+  animation: open-offer-item 500ms reverse;
+}
+
+@keyframes open-offer-item {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 </style>
