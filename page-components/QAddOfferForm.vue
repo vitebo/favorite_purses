@@ -43,9 +43,9 @@
       <q-input-range
         name="until-when-can-you-pay"
         label="R$"
-        :min="Number(0)"
-        :max="Number(10000)"
-        :value="Number(10000)"
+        :min="lowestPriceWithDiscount"
+        :max="biggestPriceWithDiscount"
+        :value="biggestPriceWithDiscount"
         @change-value="setMaxPrice"
       />
     </div>
@@ -64,21 +64,38 @@ export default {
     QInputRange
   },
   props: {
-    cities: {
-      type: Array,
-      default: () => []
-    },
-    courses: {
+    offers: {
       type: Array,
       default: () => []
     }
   },
   computed: {
+    cities() {
+      return [...new Set(this.offers.map(offer => offer.campus.city))]
+    },
+    courses() {
+      return [...new Set(this.offers.map(offer => offer.course.name))]
+    },
     cityOptions() {
       return this.cities.map(city => ({ text: city, value: city })) || []
     },
     courseOptions() {
       return this.courses.map(course => ({ text: course, value: course })) || []
+    },
+    prices() {
+      return this.offers.map(offer => Math.ceil(offer.price_with_discount))
+    },
+    lowestPriceWithDiscount() {
+      return this.prices.reduce(
+        (lowestPrice, price) => (price < lowestPrice ? price : lowestPrice),
+        Infinity
+      )
+    },
+    biggestPriceWithDiscount() {
+      return this.prices.reduce(
+        (biggestPrice, price) => (price > biggestPrice ? price : biggestPrice),
+        0
+      )
     }
   },
   methods: {

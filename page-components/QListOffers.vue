@@ -13,7 +13,7 @@
       </p>
     </header>
     <ul class="q-list-offers__list">
-      <li v-for="offer in offers" :key="offer.id">
+      <li v-for="offer in filteredOffers" :key="offer.id">
         <q-offer-item :offer="offer" />
       </li>
     </ul>
@@ -26,6 +26,8 @@ import QOfferItem from '~/page-components/QOfferItem'
 import QIconChevron from '~/components/q-icons/QIconChevron'
 import QIconBase from '~/components/q-icons/QIconBase'
 
+import { mapState } from 'vuex'
+
 export default {
   components: {
     QOfferItem,
@@ -36,6 +38,27 @@ export default {
     offers: {
       type: Array,
       default: () => []
+    }
+  },
+  computed: {
+    ...mapState('offer-filters', {
+      city: state => state.city,
+      course: state => state.course,
+      kinds: state => state.kinds,
+      maxPrice: state => state.maxPrice
+    }),
+    filteredOffers() {
+      return this.offers
+        .filter(offer => offer.campus.city === this.city || this.city === null)
+        .filter(
+          offer => offer.course.name === this.course || this.course === null
+        )
+        .filter(
+          offer =>
+            this.kinds.find(kind => kind === offer.course.kind) ||
+            this.kinds.length === 0
+        )
+        .filter(offer => offer.price_with_discount <= this.maxPrice)
     }
   }
 }
