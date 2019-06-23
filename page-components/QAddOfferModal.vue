@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasOffers" class="q-add-offer-modal">
+  <div class="q-add-offer-modal">
     <header>
       <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
       <p class="q-add-offer-modal__description">
@@ -7,8 +7,13 @@
       </p>
     </header>
 
-    <q-add-offer-form class="q-add-offer-modal__form" :offers="offersWithId" />
-    <q-list-offers :offers="offersWithId" />
+    <div v-if="hasOffers">
+      <q-add-offer-form
+        class="q-add-offer-modal__form"
+        :offers="offersWithId"
+      />
+      <q-list-offers :offers="offersWithId" />
+    </div>
 
     <footer class="q-add-offer-modal__footer">
       <q-button class="q-add-offer-modal__button" variant="secondary">
