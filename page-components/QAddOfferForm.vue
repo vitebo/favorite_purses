@@ -25,7 +25,7 @@
           class="q-add-offer-form__kind-check"
           name="kind"
           text="presencial"
-          value="presential"
+          value="Presencial"
           @change-state="updateKind"
         />
         <q-checkbox

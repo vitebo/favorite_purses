@@ -11,7 +11,7 @@
       :cities="cities"
       :courses="courses"
     />
-    <q-list-offers :offers="offersWithId" />
+    <q-list-offers :offers="filteredOffers" />
 
     <footer class="q-add-offer-modal__footer">
       <q-button class="q-add-offer-modal__button" variant="secondary">
@@ -30,6 +30,8 @@ import QListOffers from '~/page-components/QListOffers'
 
 import QButton from '~/components/form/QButton'
 
+import { mapState } from 'vuex'
+
 export default {
   components: {
     QAddOfferForm,
@@ -38,10 +40,17 @@ export default {
   },
   data() {
     return {
-      offers: []
+      offers: [],
+      teste: mapState
     }
   },
   computed: {
+    ...mapState('offer-filters', {
+      city: state => state.city,
+      course: state => state.course,
+      kinds: state => state.kinds,
+      maxPrice: state => state.maxPrice
+    }),
     cities() {
       return [...new Set(this.offers.map(offer => offer.campus.city))]
     },
@@ -50,6 +59,19 @@ export default {
     },
     offersWithId() {
       return this.offers.map((offer, id) => ({ ...offer, id }))
+    },
+    filteredOffers() {
+      return this.offersWithId
+        .filter(offer => offer.campus.city === this.city || this.city === null)
+        .filter(
+          offer => offer.course.name === this.course || this.course === null
+        )
+        .filter(
+          offer =>
+            this.kinds.find(kind => kind === offer.course.kind) ||
+            this.kinds.length === 0
+        )
+        .filter(offer => offer.price_with_discount <= this.maxPrice)
     }
   },
   async mounted() {
