@@ -43,11 +43,15 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    initialState: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      checked: false
+      checked: this.initialState
     }
   },
   computed: {

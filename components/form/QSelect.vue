@@ -32,11 +32,15 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    initialValue: {
+      type: Object,
+      default: null
     }
   },
   data() {
     return {
-      selectedValue: null
+      selectedValue: this.initialValue
     }
   },
   methods: {

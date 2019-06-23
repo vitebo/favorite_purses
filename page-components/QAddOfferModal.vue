@@ -8,11 +8,8 @@
     </header>
 
     <div v-if="hasOffers">
-      <q-add-offer-form
-        class="q-add-offer-modal__form"
-        :offers="offersWithId"
-      />
-      <q-list-offers :offers="offersWithId" />
+      <q-add-offer-form class="q-add-offer-modal__form" :offers="offers" />
+      <q-list-offers :offers="offers" />
     </div>
 
     <footer class="q-add-offer-modal__footer">
@@ -44,17 +41,16 @@ export default {
     }
   },
   computed: {
-    offersWithId() {
-      return this.offers.map((offer, id) => ({ ...offer, id }))
-    },
     hasOffers() {
       return this.offers.length > 0
     }
   },
   async mounted() {
-    this.offers = await this.$axios.$get(
+    const offers = await this.$axios.$get(
       'https://testapi.io/api/redealumni/scholarships'
     )
+
+    this.offers = offers.map((offer, id) => ({ ...offer, id }))
   }
 }
 </script>

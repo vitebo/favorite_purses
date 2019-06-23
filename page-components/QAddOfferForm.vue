@@ -4,6 +4,7 @@
       label="Selecione sua cidade"
       name="city-options"
       :options="cityOptions"
+      :initial-value="citySelected"
       class="q-add-offer-form__group"
       @change-value="setCity"
     />
@@ -12,6 +13,7 @@
       label="Selecione o curso de sua preferência"
       name="city-options"
       :options="courseOptions"
+      :initial-value="courseSelected"
       class="q-add-offer-form__group"
       @change-value="setCourse"
     />
@@ -26,6 +28,7 @@
           name="kind"
           text="presencial"
           value="Presencial"
+          :initial-state="kindIsSelected('Presencial')"
           @change-state="updateKind"
         />
         <q-checkbox
@@ -33,6 +36,7 @@
           name="kind"
           text="A distância"
           value="EaD"
+          :initial-state="kindIsSelected('EaD')"
           @change-state="updateKind"
         />
       </div>
@@ -57,6 +61,8 @@ import QSelect from '~/components/form/QSelect'
 import QCheckbox from '~/components/form/QCheckbox'
 import QInputRange from '~/components/form/QInputRange'
 
+import { mapState } from 'vuex'
+
 export default {
   components: {
     QSelect,
@@ -70,6 +76,11 @@ export default {
     }
   },
   computed: {
+    ...mapState('offer-filters', {
+      kinds: state => state.kinds,
+      city: state => state.city,
+      course: state => state.course
+    }),
     cities() {
       return [...new Set(this.offers.map(offer => offer.campus.city))]
     },
@@ -79,8 +90,22 @@ export default {
     cityOptions() {
       return this.cities.map(city => ({ text: city, value: city })) || []
     },
+    citySelected() {
+      return (
+        this.cityOptions
+          .map(cityOption => cityOption.value)
+          .find(city => city === this.city) || null
+      )
+    },
     courseOptions() {
       return this.courses.map(course => ({ text: course, value: course })) || []
+    },
+    courseSelected() {
+      return (
+        this.courseOptions
+          .map(courseOption => courseOption.value)
+          .find(course => course === this.course) || null
+      )
     },
     priceWithDiscountOrdered() {
       return this.offers
@@ -107,6 +132,10 @@ export default {
     },
     setMaxPrice(price) {
       this.$store.commit('offer-filters/setMaxPrice', price)
+    },
+    kindIsSelected(kind) {
+      const index = this.kinds.indexOf(kind)
+      return index !== -1
     }
   }
 }

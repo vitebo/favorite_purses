@@ -4,7 +4,8 @@ export const state = () => ({
   city: null,
   course: null,
   kinds: [],
-  maxPrice: DEFAULT_MAX_PRICE
+  maxPrice: DEFAULT_MAX_PRICE,
+  selectedOffers: []
 })
 
 export const mutations = {
@@ -33,6 +34,23 @@ export const mutations = {
   },
   clearKinds(state) {
     state.kinds = []
+  },
+  selectOffer(state, offer) {
+    const index = state.selectedOffers.indexOf(offer)
+
+    if (index === -1) {
+      state.selectedOffers.push(offer)
+    }
+  },
+  deselectOffer(state, offer) {
+    const index = state.selectedOffers.indexOf(offer)
+
+    if (index !== -1) {
+      state.selectedOffers.splice(index, 1)
+    }
+  },
+  clearselectedoffers(state) {
+    state.selectedOffers = []
   }
 }
 
@@ -42,5 +60,6 @@ export const actions = {
     commit('setCourse', null)
     commit('setMaxPrice', DEFAULT_MAX_PRICE)
     commit('clearKinds')
+    commit('clearselectedoffers')
   }
 }
