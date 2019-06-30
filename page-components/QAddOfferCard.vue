@@ -36,14 +36,7 @@ export default {
 <style lang="scss">
 .q-add-offer {
   color: $neutral-color-black;
-  display: inline-block;
   text-decoration: none;
-  transition: width $transition;
-  width: 100%;
-
-  @include media-breakpoint-up(sm) {
-    width: 280px;
-  }
 }
 
 .q-add-offer__card {

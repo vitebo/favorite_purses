@@ -18,7 +18,15 @@
       </div>
     </header>
     <main class="page__main">
-      <q-add-offer-card />
+      <ul class="page__offers-list">
+        <li class="page__offer">
+          <q-add-offer-card />
+        </li>
+        <li class="page__offer" v-for="offer in offers" :key="offer.id">
+          <q-favorite-offer :offer="offer" />
+        </li>
+      </ul>
+
       <q-add-offer-modal />
     </main>
   </div>
@@ -30,13 +38,17 @@ import QToggleButtons from '~/components/utils/QToggleButtons'
 
 import QAddOfferCard from '~/page-components/QAddOfferCard'
 import QAddOfferModal from '~/page-components/QAddOfferModal'
+import QFavoriteOffer from '~/page-components/QFavoriteOffer'
+
+import { mapState } from 'vuex'
 
 export default {
   components: {
     QBreadcrumb,
     QToggleButtons,
     QAddOfferCard,
-    QAddOfferModal
+    QAddOfferModal,
+    QFavoriteOffer
   },
   data() {
     return {
@@ -51,6 +63,11 @@ export default {
         { text: '1º semestre 2020', value: 'FIRST_2020', default: false }
       ]
     }
+  },
+  computed: {
+    ...mapState('favorite-offers', {
+      offers: state => state.offers
+    })
   }
 }
 </script>
@@ -89,5 +106,24 @@ export default {
 .page__main {
   margin-bottom: $space-st;
   margin-top: $space-st;
+}
+
+.page__offers-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-left: $space-m * -1;
+  margin-right: $space-m * -1;
+  padding-left: 0;
+}
+
+.page__offer {
+  flex: 1 0 calc(25% - (#{$space-m} * 2));
+  margin: $space-m;
+  min-width: 265px;
+
+  @include media-breakpoint-up(sm) {
+    flex-grow: 0;
+  }
 }
 </style>
