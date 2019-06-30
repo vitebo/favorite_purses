@@ -121,9 +121,5 @@ export default {
   flex: 1 0 calc(25% - (#{$space-m} * 2));
   margin: $space-m;
   min-width: 265px;
-
-  @include media-breakpoint-up(sm) {
-    flex-grow: 0;
-  }
 }
 </style>

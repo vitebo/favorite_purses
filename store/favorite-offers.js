@@ -9,6 +9,13 @@ export const mutations = {
     if (index === -1) {
       state.offers.push(offer)
     }
+  },
+  removeOffer(state, offer) {
+    const index = state.offers.indexOf(offer)
+
+    if (index !== -1) {
+      state.offers.splice(index, 1)
+    }
   }
 }
 

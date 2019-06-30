@@ -35,6 +35,7 @@
         class="q-favorite-offer__button"
         variant="secondary"
         size="small"
+        @onClick="removeFavoriteOffer"
         >Excluir</q-button
       >
       <q-button class="q-favorite-offer__button" size="small"
@@ -57,6 +58,11 @@ export default {
     offer: {
       type: Object,
       default: () => ({})
+    }
+  },
+  methods: {
+    removeFavoriteOffer() {
+      this.$store.commit('favorite-offers/removeOffer', this.offer)
     }
   }
 }
