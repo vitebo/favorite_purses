@@ -14,7 +14,9 @@
             <q-icon-times />
           </q-icon-base>
         </button>
-        <slot />
+        <div class="q-base-modal__card-content">
+          <slot />
+        </div>
       </q-card>
     </transition>
   </div>
@@ -71,6 +73,10 @@ export default {
   width: 100%;
   z-index: 2;
 
+  @include media-breakpoint-down(sm) {
+    height: calc(100vh - #{$space-j});
+  }
+
   @include media-breakpoint-up(sm) {
     left: calc(50% - #{$card-width / 2});
     width: $card-width;
@@ -87,6 +93,17 @@ export default {
 .q-base-modal__card--closing {
   animation: open-modal $modal-animation-time reverse;
   animation-delay: $overlay-animation-time;
+}
+
+.q-base-modal__card-content {
+  height: 100%;
+  margin-left: $card-padding * -1;
+  margin-right: $card-padding * -1;
+  padding: 0 $card-padding;
+
+  @include media-breakpoint-down(sm) {
+    overflow-y: auto;
+  }
 }
 
 .q-base-modal__close {

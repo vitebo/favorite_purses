@@ -37,6 +37,7 @@ export default {
   text-align: center;
   transition: background-color $transition;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover,
   &:focus,

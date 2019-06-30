@@ -84,9 +84,23 @@ export default {
   margin-top: $space-st;
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .q-add-offer-modal__button {
-  margin-left: $space-m;
+  flex: 1 0 100%;
+
+  & + & {
+    margin-top: $space-m;
+  }
+
+  @include media-breakpoint-up(xs) {
+    flex: 0 0 auto;
+
+    & + & {
+      margin-left: $space-m;
+      margin-top: 0;
+    }
+  }
 }
 </style>

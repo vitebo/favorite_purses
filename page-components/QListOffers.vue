@@ -107,22 +107,22 @@ export default {
   display: flex;
   justify-content: space-between;
   font-weight: $font-weight-bold;
-  margin: 0 ($card-padding * -1);
-  padding: 0 $card-padding;
 }
 
 .q-list-offers__order-by {
   margin: 0;
   padding: $space-m 0;
+  text-align: right;
 }
 
 .q-list-offers__university-name {
   border: none;
   background-color: transparent;
+  color: $primary-color-dark;
   cursor: pointer;
   font-size: rem(16);
   font-weight: $font-weight-bold;
-  color: $primary-color-dark;
+  padding: 0;
   transition: color $transition;
   text-decoration: none;
 
@@ -137,10 +137,14 @@ export default {
 
 .q-list-offers__list {
   list-style: none;
-  margin: 0 ($card-padding * -1);
   overflow-y: auto;
-  height: 300px;
-  padding-left: 0;
+  margin-left: $card-padding * -1;
+  margin-right: $card-padding * -1;
+  padding: 0 $card-padding;
+
+  @include media-breakpoint-up(sm) {
+    height: 300px;
+  }
 }
 
 .q-list-offers__item--opening {

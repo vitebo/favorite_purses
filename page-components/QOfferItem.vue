@@ -1,25 +1,25 @@
 <template>
   <div class="q-offer-item">
     <q-checkbox class="q-offer-item__checkbox" @change-state="onChangeState">
+      <figure class="q-offer-item__figure">
+        <img class="q-offer-item__image" :src="offer.university.logo_url" />
+      </figure>
       <div class="q-offer-item__info">
-        <figure class="q-offer-item__figure">
-          <img class="q-offer-item__image" :src="offer.university.logo_url" />
-        </figure>
         <div class="q-offer-item__course-info">
           <h6 class="q-offer-item__course-name">{{ offer.course.name }}</h6>
           <p class="q-offer-item__course-kind">{{ offer.course.level }}</p>
         </div>
-      </div>
-      <div class="q-offer-item__price-info">
-        <p class="q-offer-item__discount-percentage">
-          Bolsa de
+        <div class="q-offer-item__price-info">
+          <p class="q-offer-item__discount-percentage">
+            Bolsa de
+            <strong class="q-offer-item__price">
+              {{ offer.discount_percentage }}%
+            </strong>
+          </p>
           <strong class="q-offer-item__price">
-            {{ offer.discount_percentage }}%
+            R$ {{ offer.price_with_discount }}/mês
           </strong>
-        </p>
-        <strong class="q-offer-item__price">
-          R$ {{ offer.price_with_discount }}/mês
-        </strong>
+        </div>
       </div>
     </q-checkbox>
   </div>
@@ -50,7 +50,6 @@ export default {
 <style lang="scss">
 .q-offer-item {
   border-bottom: 1px solid $neutral-color-gray-lighter;
-  padding: 0 $card-padding;
   transition: background-color $transition;
 
   &:hover {
@@ -65,16 +64,24 @@ export default {
   padding: $space-m 0;
 }
 
-.q-offer-item__info {
-  align-items: center;
-  display: flex;
-  flex: 1 0 0;
-}
-
 .q-offer-item__figure {
-  flex: 0 0 120px;
+  flex: 0 0 100px;
   margin: 0;
   padding: 0 $space-m;
+
+  @include media-breakpoint-up(sm) {
+    flex-basis: 120px;
+  }
+}
+
+.q-offer-item__info {
+  align-items: flex-start;
+  display: flex;
+  flex: 1 0 0;
+
+  @include media-breakpoint-down(xs) {
+    flex-direction: column;
+  }
 }
 
 .q-offer-item__image {
@@ -97,8 +104,15 @@ export default {
 }
 
 .q-offer-item__price-info {
-  text-align: right;
   line-height: 1.5;
+
+  @include media-breakpoint-down(xs) {
+    margin-top: $space-m;
+  }
+
+  @include media-breakpoint-up(xs) {
+    text-align: right;
+  }
 }
 
 .q-offer-item__discount-percentage {
