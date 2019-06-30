@@ -18,10 +18,8 @@
       </div>
     </header>
     <main class="page__main">
-      <q-add-offer-card @addOffer="openModal" />
-      <q-base-modal :show-modal="showModal" @clickToCloseModal="close">
-        <q-add-offer-modal />
-      </q-base-modal>
+      <q-add-offer-card />
+      <q-add-offer-modal />
     </main>
   </div>
 </template>
@@ -29,7 +27,6 @@
 <script>
 import QBreadcrumb from '~/components/utils/QBreadcrumb'
 import QToggleButtons from '~/components/utils/QToggleButtons'
-import QBaseModal from '~/components/utils/QBaseModal'
 
 import QAddOfferCard from '~/page-components/QAddOfferCard'
 import QAddOfferModal from '~/page-components/QAddOfferModal'
@@ -39,7 +36,6 @@ export default {
     QBreadcrumb,
     QToggleButtons,
     QAddOfferCard,
-    QBaseModal,
     QAddOfferModal
   },
   data() {
@@ -53,16 +49,7 @@ export default {
         { text: 'Todos os semestres', value: 'ALL', default: true },
         { text: '2º semestre 2019', value: 'SECOND_2019', default: false },
         { text: '1º semestre 2020', value: 'FIRST_2020', default: false }
-      ],
-      showModal: false
-    }
-  },
-  methods: {
-    openModal() {
-      this.showModal = !this.showModal
-    },
-    close() {
-      this.showModal = false
+      ]
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <button :class="qButtonClass">
+  <button :class="qButtonClass" @click="onClick">
     <slot />
   </button>
 </template>
@@ -19,6 +19,11 @@ export default {
       modifier[`${className}--${this.variant}`] = this.variant
 
       return [className, modifier]
+    }
+  },
+  methods: {
+    onClick() {
+      this.$emit('onClick')
     }
   }
 }

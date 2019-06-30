@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     addOffer() {
-      this.$emit('addOffer')
+      this.$store.commit('page/openModal')
     }
   }
 }

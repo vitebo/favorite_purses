@@ -1,5 +1,9 @@
 <template>
-  <div class="q-add-offer-modal">
+  <q-base-modal
+    class="q-add-offer-modal"
+    :show-modal="addOfferModalIsOpen"
+    @clickToCloseModal="closeModal"
+  >
     <header>
       <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
       <p class="q-add-offer-modal__description">
@@ -19,11 +23,12 @@
       <q-button
         class="q-add-offer-modal__button"
         :disabled="!hasOffersSelected"
+        @onClick="addOffers"
       >
         Adicionar bolsa(s)
       </q-button>
     </footer>
-  </div>
+  </q-base-modal>
 </template>
 
 <script>
@@ -31,6 +36,7 @@ import QAddOfferForm from '~/page-components/QAddOfferForm'
 import QListOffers from '~/page-components/QListOffers'
 
 import QButton from '~/components/form/QButton'
+import QBaseModal from '~/components/utils/QBaseModal'
 
 import { mapState } from 'vuex'
 
@@ -38,16 +44,21 @@ export default {
   components: {
     QAddOfferForm,
     QListOffers,
-    QButton
+    QButton,
+    QBaseModal
   },
   data() {
     return {
-      offers: []
+      offers: [],
+      showModal: false
     }
   },
   computed: {
     ...mapState('offer-filters', {
       selectedOffers: state => state.selectedOffers
+    }),
+    ...mapState('page', {
+      addOfferModalIsOpen: state => state.addOfferModalIsOpen
     }),
     hasOffers() {
       return this.offers.length > 0
@@ -62,6 +73,15 @@ export default {
     )
 
     this.offers = offers.map((offer, id) => ({ ...offer, id }))
+  },
+  methods: {
+    addOffers() {
+      this.$store.dispatch('favorite-offers/addOffers', this.selectedOffers)
+      this.closeModal()
+    },
+    closeModal() {
+      this.$store.commit('page/closeModal')
+    }
   }
 }
 </script>
