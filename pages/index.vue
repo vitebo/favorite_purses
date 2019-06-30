@@ -19,7 +19,7 @@
     </header>
     <main class="page__main">
       <ul class="page__offers-list">
-        <li class="page__offer">
+        <li class="page__offer page__offer--add-offer">
           <q-add-offer-card />
         </li>
         <li v-for="offer in offers" :key="offer.id" class="page__offer">
@@ -118,8 +118,12 @@ export default {
 }
 
 .page__offer {
-  flex: 1 0 calc(25% - (#{$space-m} * 2));
+  flex: 0 0 calc(25% - (#{$space-m} * 2));
   margin: $space-m;
   min-width: 265px;
+}
+
+.page__offer--add-offer {
+  flex-grow: 0;
 }
 </style>

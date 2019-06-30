@@ -36,12 +36,15 @@ export default {
 <style lang="scss">
 .q-add-offer {
   color: $neutral-color-black;
+  display: inline-block;
+  height: 100%;
   text-decoration: none;
 }
 
 .q-add-offer__card {
   align-items: center;
   display: flex;
+  height: 100%;
   justify-content: center;
   min-height: 400px;
   text-align: center;
