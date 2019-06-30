@@ -22,7 +22,7 @@
         <li class="page__offer">
           <q-add-offer-card />
         </li>
-        <li class="page__offer" v-for="offer in offers" :key="offer.id">
+        <li v-for="offer in offers" :key="offer.id" class="page__offer">
           <q-favorite-offer :offer="offer" />
         </li>
       </ul>

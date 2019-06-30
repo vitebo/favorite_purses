@@ -59,7 +59,7 @@ export default {
 <style lang="scss">
 .q-overlay {
   background-color: $overlay-color;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   height: 100vh;

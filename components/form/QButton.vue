@@ -10,6 +10,10 @@ export default {
     variant: {
       type: [String, Boolean],
       default: false
+    },
+    size: {
+      type: [String, Boolean],
+      default: false
     }
   },
   computed: {
@@ -17,6 +21,7 @@ export default {
       const className = 'q-button'
       const modifier = {}
       modifier[`${className}--${this.variant}`] = this.variant
+      modifier[`${className}--${this.size}`] = this.size
 
       return [className, modifier]
     }
@@ -71,5 +76,11 @@ export default {
   &:focus {
     background-color: $neutral-color-gray-lighter;
   }
+}
+
+.q-button--small {
+  font-size: $font-size-small;
+  padding: 0 $space-m;
+  height: 32px;
 }
 </style>
