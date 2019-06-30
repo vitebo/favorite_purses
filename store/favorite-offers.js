@@ -3,28 +3,33 @@ export const state = () => ({
 })
 
 export const mutations = {
-  addOffer(state, offer) {
-    const index = state.offers.indexOf(offer)
+  addOffer(state, offerToAdd) {
+    const hasOffer = state.offers.some(offer => offer.id === offerToAdd.id)
 
-    if (index === -1) {
-      state.offers.push(offer)
+    if (!hasOffer) {
+      state.offers.push(offerToAdd)
     }
   },
-  removeOffer(state, offer) {
-    const index = state.offers.indexOf(offer)
-
-    if (index !== -1) {
-      state.offers.splice(index, 1)
-    }
+  removeOffer(state, offerToRemove) {
+    state.offers = state.offers.filter(offer => offer.id !== offerToRemove.id)
   }
 }
 
 export const actions = {
-  addOffers({ commit }, offers) {
+  initialize({ commit }) {
+    const offersSaved = JSON.parse(localStorage.getItem('offers')) || []
+    offersSaved.forEach(offer => commit('addOffer', offer))
+  },
+  addOffers({ commit, state }, offers) {
     if (offers.length === 0) {
       return
     }
 
     offers.forEach(offer => commit('addOffer', offer))
+    localStorage.setItem('offers', JSON.stringify(state.offers))
+  },
+  removeOffer({ commit, state }, offer) {
+    commit('removeOffer', offer)
+    localStorage.setItem('offers', JSON.stringify(state.offers))
   }
 }

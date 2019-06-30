@@ -68,6 +68,9 @@ export default {
     ...mapState('favorite-offers', {
       offers: state => state.offers
     })
+  },
+  mounted() {
+    this.$store.dispatch('favorite-offers/initialize')
   }
 }
 </script>

@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     removeFavoriteOffer() {
-      this.$store.commit('favorite-offers/removeOffer', this.offer)
+      this.$store.dispatch('favorite-offers/removeOffer', this.offer)
     }
   }
 }
