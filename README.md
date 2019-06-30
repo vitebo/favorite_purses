@@ -1,8 +1,8 @@
-# Favorite Purses
+# Scholarships
 
-[![Build Status](https://travis-ci.org/vitebo/favorite_purses.svg?branch=master)](https://travis-ci.org/vitebo/favorite_purses)
+[![Build Status](https://travis-ci.org/vitebo/scholarships.svg?branch=master)](https://travis-ci.org/vitebo/scholarships)
 
-Acesse a **[aplicação em produção](https://vitebo.github.io/favorite_purses/)**
+Acesse a **[aplicação em produção](https://vitebo.github.io/scholarships/)**
 
 ## Configurando o ambiente de desenvolvimento
 
@@ -37,13 +37,13 @@ $ yarn dev
 
 ## Fazendo deploy
 
-Para checar o resultado do deloy **[acesse a aplicação em produção](https://vitebo.github.io/favorite_purses/)**.
+Para checar o resultado do deloy **[acesse a aplicação em produção](https://vitebo.github.io/scholarships/)**.
 
 ### Automático
 
 Todo *merge/commit* na *branch* **master** dispara um deploy automaticamente.
 
-Você pode acompanhar o andamento do *deploy* pelo **[travis](https://travis-ci.org/vitebo/favorite_purses)**.
+Você pode acompanhar o andamento do *deploy* pelo **[travis](https://travis-ci.org/vitebo/scholarships)**.
 
 ## Manual
 
