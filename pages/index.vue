@@ -19,10 +19,14 @@
     </header>
     <main class="page__main">
       <ul class="page__offers-list">
-        <li class="page__offer page__offer--add-offer">
+        <li :class="pageOfferClass">
           <q-add-offer-card />
         </li>
-        <li v-for="offer in offersFiltered" :key="offer.id" class="page__offer">
+        <li
+          v-for="offer in offersFiltered"
+          :key="offer.id"
+          :class="pageOfferClass"
+        >
           <q-favorite-offer :offer="offer" />
         </li>
       </ul>
@@ -79,6 +83,14 @@ export default {
           offer => offer.enrollment_semester === this.enrollmentSemester
         ) || []
       )
+    },
+    pageOfferClass() {
+      const className = 'page__offer'
+
+      const modifier = {}
+      modifier[`${className}--large`] = this.offersFiltered.length > 1
+
+      return [className, modifier]
     }
   },
   mounted() {
@@ -140,10 +152,18 @@ export default {
 .page__offer {
   flex: 0 0 calc(25% - (#{$space-m} * 2));
   margin: $space-m;
+  max-width: calc(50% - (#{$space-m} * 2));
   min-width: 265px;
+
+  @include media-breakpoint-down(sm) {
+    max-width: 100%;
+    flex-grow: 1;
+  }
 }
 
-.page__offer--add-offer {
-  flex-grow: 0;
+.page__offer--large {
+  @include media-breakpoint-down(lg) {
+    flex-grow: 1;
+  }
 }
 </style>

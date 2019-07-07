@@ -39,6 +39,7 @@ export default {
   display: inline-block;
   height: 100%;
   text-decoration: none;
+  width: 100%;
 }
 
 .q-add-offer__card {
