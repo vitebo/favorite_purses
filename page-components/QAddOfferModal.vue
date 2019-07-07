@@ -4,30 +4,35 @@
     :show-modal="addOfferModalIsOpen"
     @clickToCloseModal="closeModal"
   >
-    <header>
-      <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
-      <p class="q-add-offer-modal__description">
-        Filtre e adicione as bolsas de seu interesse.
-      </p>
-    </header>
-
-    <div v-if="hasOffers">
-      <q-add-offer-form class="q-add-offer-modal__form" :offers="offers" />
-      <q-list-offers :offers="offers" />
+    <div v-if="hasNetworkingError" class="q-add-offer-modal__network-error">
+      <p>Verifique a sua conexão com a internet</p>
     </div>
+    <div v-if="!hasNetworkingError">
+      <header>
+        <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
+        <p class="q-add-offer-modal__description">
+          Filtre e adicione as bolsas de seu interesse.
+        </p>
+      </header>
 
-    <footer class="q-add-offer-modal__footer">
-      <q-button class="q-add-offer-modal__button" variant="secondary">
-        Cancelar
-      </q-button>
-      <q-button
-        class="q-add-offer-modal__button"
-        :disabled="!hasOffersSelected"
-        @onClick="addOffers"
-      >
-        Adicionar bolsa(s)
-      </q-button>
-    </footer>
+      <div v-if="hasOffers">
+        <q-add-offer-form class="q-add-offer-modal__form" :offers="offers" />
+        <q-list-offers :offers="offers" />
+      </div>
+
+      <footer class="q-add-offer-modal__footer">
+        <q-button class="q-add-offer-modal__button" variant="secondary">
+          Cancelar
+        </q-button>
+        <q-button
+          class="q-add-offer-modal__button"
+          :disabled="!hasOffersSelected"
+          @onClick="addOffers"
+        >
+          Adicionar bolsa(s)
+        </q-button>
+      </footer>
+    </div>
   </q-base-modal>
 </template>
 
@@ -50,7 +55,8 @@ export default {
   data() {
     return {
       offers: [],
-      showModal: false
+      showModal: false,
+      hasNetworkingError: false
     }
   },
   computed: {
@@ -68,11 +74,15 @@ export default {
     }
   },
   async mounted() {
-    const offers = await this.$axios.$get(
-      'https://testapi.io/api/redealumni/scholarships'
-    )
+    try {
+      const offers = await this.$axios.$get(
+        'https://testapi.io/api/redealumni/scholarships'
+      )
 
-    this.offers = offers.map((offer, id) => ({ ...offer, id }))
+      this.offers = offers.map((offer, id) => ({ ...offer, id }))
+    } catch (error) {
+      this.hasNetworkingError = true
+    }
   },
   methods: {
     addOffers() {
@@ -87,6 +97,12 @@ export default {
 </script>
 
 <style lang="scss">
+.q-add-offer-modal__network-error {
+  color: $neutral-color-gray-pure;
+  margin: $space-j 0;
+  text-align: center;
+}
+
 .q-add-offer-modal__title {
   margin: 0;
   font-size: rem(23);

@@ -12,7 +12,7 @@
         </button>
       </p>
     </header>
-    <ul class="q-list-offers__list">
+    <ul v-if="hasFilteredOffers" class="q-list-offers__list">
       <transition-group
         enter-active-class="q-list-offers__item--opening"
         leave-active-class="q-list-offers__item--closing"
@@ -26,6 +26,9 @@
         </li>
       </transition-group>
     </ul>
+    <div v-if="!hasFilteredOffers" class="q-list-offers__empty">
+      <p>Nenhuma oferta disponivel com esses filtros</p>
+    </div>
   </section>
 </template>
 
@@ -90,6 +93,9 @@ export default {
     },
     favoritedOffersIds() {
       return this.favoritedOffers.map(offer => offer.id)
+    },
+    hasFilteredOffers() {
+      return this.filteredOffers.length > 0
     }
   },
   beforeDestroy() {
@@ -170,5 +176,11 @@ export default {
   to {
     opacity: 1;
   }
+}
+
+.q-list-offers__empty {
+  color: $neutral-color-gray-pure;
+  margin: $space-j 0;
+  text-align: center;
 }
 </style>
