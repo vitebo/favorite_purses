@@ -93,11 +93,11 @@ export default {
 }
 
 .q-favorite-offer__title {
-  text-transform: uppercase;
   font-size: $font-size-small;
   font-weight: $font-weight-bold;
   margin: 0;
   margin-top: $space-st;
+  text-transform: uppercase;
 }
 
 .q-favorite-offer__sub-title {
@@ -111,8 +111,8 @@ export default {
   color: $primary-color-dark;
   display: inline-block;
   font-weight: $font-weight-bold;
-  text-decoration: none;
   margin-top: $space-s;
+  text-decoration: none;
 }
 
 .q-favorite-offer_score {
@@ -133,8 +133,8 @@ export default {
 .q-favorite-offer__full-price {
   display: inline-block;
   font-size: $font-size-small;
-  text-decoration: line-through;
   margin-top: $space-m;
+  text-decoration: line-through;
 }
 
 .q-favorite-offer__discount {

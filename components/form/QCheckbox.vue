@@ -86,17 +86,17 @@ $check-box-font-size: rem(16);
 
 .q-checkbox {
   align-items: center;
-  display: inline-flex;
   color: $neutral-color-black;
   cursor: pointer;
+  display: inline-flex;
   font-size: $check-box-font-size;
   font-weight: $font-weight-normal;
   line-height: rem(22);
   position: relative;
 
   &::before {
-    border-radius: 2px;
     border: 1px solid $neutral-color-black;
+    border-radius: 2px;
     box-sizing: border-box;
     content: '';
     display: block;

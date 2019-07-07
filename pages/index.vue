@@ -156,8 +156,8 @@ export default {
   min-width: 265px;
 
   @include media-breakpoint-down(sm) {
-    max-width: 100%;
     flex-grow: 1;
+    max-width: 100%;
   }
 }
 

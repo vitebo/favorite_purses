@@ -145,9 +145,9 @@ export default {
 .q-add-offer-form {
   display: flex;
   flex-wrap: wrap;
-  position: relative;
   margin-left: $space-s * -1;
   margin-right: $space-s * -1;
+  position: relative;
 }
 
 .q-add-offer-form__legend {
@@ -155,8 +155,8 @@ export default {
   font-size: rem(13);
   font-weight: $font-weight-bold;
   line-height: rem(20);
-  text-transform: uppercase;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .q-add-offer-form__group {

@@ -61,24 +61,24 @@ export default {
 }
 
 .q-input-range__field {
-  width: 100%;
-  display: block;
   appearance: none;
-  height: $space-xs;
   background: $primary-color;
-  outline: none;
   border-radius: $space-xxs;
+  display: block;
+  height: $space-xs;
   margin-top: $space-st;
+  outline: none;
+  width: 100%;
 }
 
 .q-input-range__field::-webkit-slider-thumb {
   appearance: none;
-  width: $space-st;
-  height: $space-st;
   background: $neutral-color-white;
-  border-radius: 50%;
-  cursor: pointer;
   border: $space-xxs solid $primary-color;
+  border-radius: 50%;
   box-sizing: content-box;
+  cursor: pointer;
+  height: $space-st;
+  width: $space-st;
 }
 </style>

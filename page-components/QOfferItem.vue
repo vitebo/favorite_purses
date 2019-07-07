@@ -110,8 +110,8 @@ export default {
 }
 
 .q-offer-item__image {
-  max-width: 100%;
   max-height: 42px;
+  max-width: 100%;
 }
 
 .q-offer-item__course-info {

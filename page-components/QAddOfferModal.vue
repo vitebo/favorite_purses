@@ -104,8 +104,8 @@ export default {
 }
 
 .q-add-offer-modal__title {
-  margin: 0;
   font-size: rem(23);
+  margin: 0;
 }
 
 .q-add-offer-modal__description {
@@ -117,10 +117,10 @@ export default {
 }
 
 .q-add-offer-modal__footer {
-  margin-top: $space-st;
   display: flex;
-  justify-content: flex-end;
   flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: $space-st;
 }
 
 .q-add-offer-modal__button {

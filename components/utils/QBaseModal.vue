@@ -68,8 +68,8 @@ export default {
   left: 0;
   margin-right: 0 auto;
   position: absolute;
-  transition: transform $transition;
   top: $space-j;
+  transition: transform $transition;
   width: 100%;
   z-index: 2;
 
@@ -108,18 +108,19 @@ export default {
 
 .q-base-modal__close {
   @include size(32px);
+
   background-color: transparent;
-  color: $neutral-color-white;
   border: none;
-  position: absolute;
-  top: $space-xxl * -1;
-  right: 0;
+  color: $neutral-color-white;
   padding: 0;
+  position: absolute;
+  right: 0;
+  top: $space-xxl * -1;
   transition: transform $transition;
 
   &:hover {
-    transform: scale(1.1);
     cursor: pointer;
+    transform: scale(1.1);
   }
 }
 

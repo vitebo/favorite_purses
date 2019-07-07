@@ -2,7 +2,7 @@
   <div class="q-score">
     <strong class="q-score__grade">{{ formatedGrade }}</strong>
     <ul class="q-score__stars">
-      <li class="q-score__star" v-for="index in 5" :key="index">
+      <li v-for="index in 5" :key="index" class="q-score__star">
         <q-icon-base>
           <component :is="getStar(index)" />
         </q-icon-base>
@@ -67,13 +67,14 @@ export default {
 .q-score__stars {
   color: $secondary-color;
   display: flex;
-  list-style: none;
   justify-content: center;
+  list-style: none;
   padding-left: 0;
 }
 
 .q-score__star {
   @include size(22px);
+
   margin: $space-xxs;
 }
 </style>

@@ -40,13 +40,13 @@ export default {
   border: 1px solid $secondary-color-dark;
   border-radius: $space-xs;
   color: $neutral-color-black;
+  cursor: pointer;
   font-size: rem(16);
   font-weight: $font-weight-bold;
   height: 48px;
   padding: 0 $space-st;
   text-align: center;
   transition: background-color $transition;
-  cursor: pointer;
   white-space: nowrap;
 
   &:hover,
@@ -80,7 +80,7 @@ export default {
 
 .q-button--small {
   font-size: $font-size-small;
-  padding: 0 $space-m;
   height: 32px;
+  padding: 0 $space-m;
 }
 </style>

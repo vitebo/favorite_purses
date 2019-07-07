@@ -98,8 +98,8 @@ export default {
   z-index: 1;
 
   @include media-breakpoint-down(sm) {
-    top: $header-height;
     height: calc(100vh - #{$header-height});
+    top: $header-height;
     transform: translateX(-100%);
   }
 }
