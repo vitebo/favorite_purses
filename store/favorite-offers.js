@@ -1,5 +1,6 @@
 export const state = () => ({
-  offers: []
+  offers: [],
+  enrollmentSemester: 'ALL'
 })
 
 export const mutations = {
@@ -12,6 +13,9 @@ export const mutations = {
   },
   removeOffer(state, offerToRemove) {
     state.offers = state.offers.filter(offer => offer.id !== offerToRemove.id)
+  },
+  updateSemester(state, semester) {
+    state.enrollmentSemester = semester
   }
 }
 

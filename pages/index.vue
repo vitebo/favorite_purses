@@ -14,7 +14,7 @@
       </p>
 
       <div class="page__toggle-buttons">
-        <q-toggle-buttons :items="semestersFilter" />
+        <q-toggle-buttons :items="semestersFilter" @toggle="updateSemester" />
       </div>
     </header>
     <main class="page__main">
@@ -22,7 +22,7 @@
         <li class="page__offer page__offer--add-offer">
           <q-add-offer-card />
         </li>
-        <li v-for="offer in offers" :key="offer.id" class="page__offer">
+        <li v-for="offer in offersFiltered" :key="offer.id" class="page__offer">
           <q-favorite-offer :offer="offer" />
         </li>
       </ul>
@@ -59,18 +59,35 @@ export default {
       pageName: 'Bolsas Favoritas',
       semestersFilter: [
         { text: 'Todos os semestres', value: 'ALL', default: true },
-        { text: '2º semestre 2019', value: 'SECOND_2019', default: false },
-        { text: '1º semestre 2020', value: 'FIRST_2020', default: false }
+        { text: '2º semestre 2019', value: '2019.2', default: false },
+        { text: '1º semestre 2020', value: '2020.1', default: false }
       ]
     }
   },
   computed: {
     ...mapState('favorite-offers', {
-      offers: state => state.offers
-    })
+      offers: state => state.offers,
+      enrollmentSemester: state => state.enrollmentSemester
+    }),
+    offersFiltered() {
+      if (this.enrollmentSemester === 'ALL') {
+        return this.offers || []
+      }
+
+      return (
+        this.offers.filter(
+          offer => offer.enrollment_semester === this.enrollmentSemester
+        ) || []
+      )
+    }
   },
   mounted() {
     this.$store.dispatch('favorite-offers/initialize')
+  },
+  methods: {
+    updateSemester(semester) {
+      this.$store.commit('favorite-offers/updateSemester', semester.value)
+    }
   }
 }
 </script>
