@@ -6,6 +6,7 @@
       </figure>
       <h5 class="q-favorite-offer__title">{{ offer.university.name }}</h5>
       <a class="q-favorite-offer__link" href="#">{{ offer.course.name }}</a>
+      <q-score class="q-favorite-offer_score" />
       <hr class="q-favorite-offer__divider" />
     </header>
     <article>
@@ -47,11 +48,13 @@
 
 <script>
 import QCard from '~/components/utils/QCard'
+import QScore from '~/components/utils/QScore'
 import QButton from '~/components/form/QButton'
 
 export default {
   components: {
     QCard,
+    QScore,
     QButton
   },
   props: {
@@ -104,6 +107,10 @@ export default {
   font-weight: $font-weight-bold;
   text-decoration: none;
   margin-top: $space-s;
+}
+
+.q-favorite-offer_score {
+  margin-top: $space-m;
 }
 
 .q-favorite-offer__divider {
