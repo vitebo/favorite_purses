@@ -1,15 +1,15 @@
 <template>
   <q-card class="q-favorite-offer">
-    <header>
+    <header class="q-favorite-offer__header">
       <figure class="q-favorite-offer__figure">
         <img class="q-favorite-offer__image" :src="offer.university.logo_url" />
       </figure>
       <h5 class="q-favorite-offer__title">{{ offer.university.name }}</h5>
       <a class="q-favorite-offer__link" href="#">{{ offer.course.name }}</a>
-      <q-score :grade="offer.university.score" class="q-favorite-offer_score" />
-      <hr class="q-favorite-offer__divider" />
     </header>
     <article>
+      <q-score :grade="offer.university.score" class="q-favorite-offer_score" />
+      <hr class="q-favorite-offer__divider" />
       <h5 class="q-favorite-offer__title">
         {{ offer.course.kind }} - {{ offer.course.shift }}
       </h5>
@@ -73,8 +73,14 @@ export default {
 
 <style lang="scss">
 .q-favorite-offer {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   text-align: center;
+}
+
+.q-favorite-offer__header {
+  flex-grow: 1;
 }
 
 .q-favorite-offer__figure {
