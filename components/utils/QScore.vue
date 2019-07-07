@@ -1,30 +1,10 @@
 <template>
   <div class="q-score">
-    <strong class="q-score__grade">4.5</strong>
+    <strong class="q-score__grade">{{ formatedGrade }}</strong>
     <ul class="q-score__stars">
-      <li class="q-score__star">
+      <li class="q-score__star" v-for="index in 5" :key="index">
         <q-icon-base>
-          <q-icon-star />
-        </q-icon-base>
-      </li>
-      <li class="q-score__star">
-        <q-icon-base>
-          <q-icon-star />
-        </q-icon-base>
-      </li>
-      <li class="q-score__star">
-        <q-icon-base>
-          <q-icon-star />
-        </q-icon-base>
-      </li>
-      <li class="q-score__star">
-        <q-icon-base>
-          <q-icon-star-half />
-        </q-icon-base>
-      </li>
-      <li class="q-score__star">
-        <q-icon-base>
-          <q-icon-star-empty />
+          <component :is="getStar(index)" />
         </q-icon-base>
       </li>
     </ul>
@@ -34,15 +14,40 @@
 <script>
 import QIconBase from '~/components/q-icons/QIconBase'
 import QIconStar from '~/components/q-icons/QIconStar'
-import QIconStarEmpty from '~/components/q-icons/QIconStarEmpty'
 import QIconStarHalf from '~/components/q-icons/QIconStarHalf'
+import QIconStarEmpty from '~/components/q-icons/QIconStarEmpty'
 
 export default {
   components: {
-    QIconBase,
-    QIconStar,
-    QIconStarHalf,
-    QIconStarEmpty
+    QIconBase
+  },
+  props: {
+    grade: {
+      type: Number,
+      default: 0
+    }
+  },
+  computed: {
+    formatedGrade() {
+      if (String(this.grade).length === 1) {
+        return `${this.grade}.0`
+      }
+
+      return this.grade
+    }
+  },
+  methods: {
+    getStar(index) {
+      if (index <= this.grade) {
+        return QIconStar
+      }
+
+      if (index >= this.grade + 1) {
+        return QIconStarEmpty
+      }
+
+      return QIconStarHalf
+    }
   }
 }
 </script>

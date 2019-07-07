@@ -6,7 +6,7 @@
       </figure>
       <h5 class="q-favorite-offer__title">{{ offer.university.name }}</h5>
       <a class="q-favorite-offer__link" href="#">{{ offer.course.name }}</a>
-      <q-score class="q-favorite-offer_score" />
+      <q-score :grade="offer.university.score" class="q-favorite-offer_score" />
       <hr class="q-favorite-offer__divider" />
     </header>
     <article>
