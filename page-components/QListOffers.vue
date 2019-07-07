@@ -61,6 +61,9 @@ export default {
       kinds: state => state.kinds,
       maxPrice: state => state.maxPrice
     }),
+    ...mapState('favorite-offers', {
+      favoritedOffers: state => state.offers
+    }),
     filteredOffers() {
       const offers = this.offers
         .filter(offer => offer.campus.city === this.city || this.city === null)
@@ -73,6 +76,7 @@ export default {
             this.kinds.length === 0
         )
         .filter(offer => offer.price_with_discount <= this.maxPrice)
+        .filter(offer => !this.favoritedOffersIds.includes(offer.id))
         .sort((a, b) =>
           a.university.name.toLowerCase() > b.university.name.toLowerCase()
             ? 1
@@ -83,6 +87,9 @@ export default {
     },
     arrowDirection() {
       return this.orderBy === 'ASC' ? 'bottom' : 'top'
+    },
+    favoritedOffersIds() {
+      return this.favoritedOffers.map(offer => offer.id)
     }
   },
   beforeDestroy() {
