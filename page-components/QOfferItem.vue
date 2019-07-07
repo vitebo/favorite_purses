@@ -1,6 +1,10 @@
 <template>
-  <div class="q-offer-item">
-    <q-checkbox class="q-offer-item__checkbox" @change-state="onChangeState">
+  <div :class="qOfferItemClass">
+    <q-checkbox
+      class="q-offer-item__checkbox"
+      :disabled="isDisabled"
+      @change-state="onChangeState"
+    >
       <figure class="q-offer-item__figure">
         <img class="q-offer-item__image" :src="offer.university.logo_url" />
       </figure>
@@ -38,6 +42,19 @@ export default {
       default: () => ({})
     }
   },
+  computed: {
+    qOfferItemClass() {
+      const className = 'q-offer-item'
+
+      const modifier = {}
+      modifier[`${className}--disabled`] = this.isDisabled
+
+      return [className, modifier]
+    },
+    isDisabled() {
+      return !this.offer.enabled
+    }
+  },
   methods: {
     onChangeState({ checked }) {
       const mutation = checked ? 'selectOffer' : 'deselectOffer'
@@ -54,6 +71,14 @@ export default {
 
   &:hover {
     background-color: $neutral-color-gray-lightest;
+  }
+}
+
+.q-offer-item--disabled {
+  filter: grayscale(100%);
+
+  &:hover {
+    background-color: transparent;
   }
 }
 

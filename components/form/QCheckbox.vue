@@ -5,6 +5,7 @@
       type="checkbox"
       :name="name"
       :value="value"
+      :disabled="disabled"
       class="q-checkbox__input"
       @change="onChange"
     />
@@ -47,6 +48,10 @@ export default {
     initialState: {
       type: Boolean,
       default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -59,12 +64,17 @@ export default {
       const className = 'q-checkbox'
       const modifier = {}
       modifier[`${className}--checked`] = this.checked
+      modifier[`${className}--disabled`] = this.disabled
 
       return [className, modifier]
     }
   },
   methods: {
     onChange() {
+      if (this.disabled) {
+        return
+      }
+
       this.$emit('change-state', { value: this.value, checked: this.checked })
     }
   }
@@ -103,6 +113,14 @@ $check-box-font-size: rem(16);
   &::before {
     background-color: $primary-color;
     border-color: transparent;
+  }
+}
+
+.q-checkbox--disabled {
+  cursor: not-allowed;
+
+  &::before {
+    background-color: $neutral-color-gray-lighter;
   }
 }
 
