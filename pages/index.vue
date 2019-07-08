@@ -7,7 +7,9 @@
         class="page__breadcrumb"
       />
 
-      <h1 class="page__title">Bolsas favoritas</h1>
+      <h1 class="page__title">
+        Bolsas favoritas
+      </h1>
       <p class="page__description">
         Adicione bolsas de cursos e faculdades do seu interesse e receba
         atualizações com as melhores ofertas disponíveis.

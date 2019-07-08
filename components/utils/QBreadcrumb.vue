@@ -6,7 +6,9 @@
           {{ item.text }}
         </a>
       </li>
-      <li class="q-breadcrumb__current">{{ current }}</li>
+      <li class="q-breadcrumb__current">
+        {{ current }}
+      </li>
     </ul>
     <a :href="prev.url" class="q-breadcrumb__link q-breadcrumb__link--prev">
       <q-icon-base height="12px" width="12px" class="q-breadcrumb__icon">

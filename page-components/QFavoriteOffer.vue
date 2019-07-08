@@ -4,7 +4,9 @@
       <figure class="q-favorite-offer__figure">
         <img class="q-favorite-offer__image" :src="offer.university.logo_url" />
       </figure>
-      <h5 class="q-favorite-offer__title">{{ offer.university.name }}</h5>
+      <h5 class="q-favorite-offer__title">
+        {{ offer.university.name }}
+      </h5>
       <a class="q-favorite-offer__link" href="#">{{ offer.course.name }}</a>
     </header>
     <article>
@@ -37,11 +39,12 @@
         variant="secondary"
         size="small"
         @onClick="removeFavoriteOffer"
-        >Excluir</q-button
       >
-      <q-button class="q-favorite-offer__button" size="small"
-        >Ver oferta</q-button
-      >
+        Excluir
+      </q-button>
+      <q-button class="q-favorite-offer__button" size="small">
+        Ver oferta
+      </q-button>
     </footer>
   </q-card>
 </template>

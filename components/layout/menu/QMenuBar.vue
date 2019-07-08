@@ -13,7 +13,9 @@
             </div>
           </template>
           <ul class="q-menu-bar__list">
-            <li class="q-menu-bar__item">Pré-matriculas</li>
+            <li class="q-menu-bar__item">
+              Pré-matriculas
+            </li>
             <li class="q-menu-bar__item q-menu-bar__item--active">
               Bolsas favoritas
             </li>

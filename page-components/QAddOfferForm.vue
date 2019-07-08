@@ -43,7 +43,9 @@
     </div>
 
     <div class="q-add-offer-form__group">
-      <h4 class="q-add-offer-form__legend">Até quanto pode pagar?</h4>
+      <h4 class="q-add-offer-form__legend">
+        Até quanto pode pagar?
+      </h4>
       <q-input-range
         name="until-when-can-you-pay"
         label="R$"

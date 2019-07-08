@@ -66,7 +66,6 @@ export default {
   $card-width: 700px;
 
   left: 0;
-  margin-right: 0 auto;
   position: absolute;
   top: $space-j;
   transition: transform $transition;

@@ -9,7 +9,9 @@
     </div>
     <div v-if="!hasNetworkingError">
       <header>
-        <h3 class="q-add-offer-modal__title">Adicionar bolsa</h3>
+        <h3 class="q-add-offer-modal__title">
+          Adicionar bolsa
+        </h3>
         <p class="q-add-offer-modal__description">
           Filtre e adicione as bolsas de seu interesse.
         </p>

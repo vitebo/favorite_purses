@@ -5,7 +5,7 @@
     @before-enter="removeBodyScroll"
     @after-leave="addBodyScroll"
   >
-    <div v-if="showOverlay" :class="overlayClass" @click="clickOnOverlay"></div>
+    <div v-if="showOverlay" :class="overlayClass" @click="clickOnOverlay" />
   </transition>
 </template>
 

@@ -10,8 +10,12 @@
       </figure>
       <div class="q-offer-item__info">
         <div class="q-offer-item__course-info">
-          <h6 class="q-offer-item__course-name">{{ offer.course.name }}</h6>
-          <p class="q-offer-item__course-kind">{{ offer.course.level }}</p>
+          <h6 class="q-offer-item__course-name">
+            {{ offer.course.name }}
+          </h6>
+          <p class="q-offer-item__course-kind">
+            {{ offer.course.level }}
+          </p>
         </div>
         <div class="q-offer-item__price-info">
           <p class="q-offer-item__discount-percentage">
