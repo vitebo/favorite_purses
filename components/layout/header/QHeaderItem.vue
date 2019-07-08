@@ -1,6 +1,6 @@
 <template>
   <a :href="url" :class="qItemClass">
-    <q-icon-base :icon-name="text" class="q-item__icon">
+    <q-icon-base class="q-item__icon">
       <slot />
     </q-icon-base>
     <div class="q-item__content q-item__content--desktop">
